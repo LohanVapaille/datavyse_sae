@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>DataVyse</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  canvas {
+    border: 1px solid #ffffff;
+    margin-top: 20px;
+    background-color: #f63f3f;
+  }
+
+  #timelineContainer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+  }
+
+  #timeline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .yearBox {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #999;
+  }
+
+  .yearBox:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+
+  .yearBox:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .yearBox.selected {
+    border: 2px solid #3498db;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+  <div class="billboard">
+<h1>BILLBOARD DATA</h1>
+<p class="genre">Hip/Hop R&B Rock Folk Pop Country </p>
+<img class="theweeknd" src="/img/theweeknd.png" alt="theweeknd">
+<div class="banniere"><p>THE HISTORY OF MUSIC</p></div>
+
+
+  </div>
+
+<h2>Graphique interactif par année (Top 5 + Autre)</h2>
+
+<canvas id="chartCanvas" width="800" height="490"></canvas>
+
+<div id="timelineContainer">
+  
+  <div id="timeline"></div>
+</div>
+
+
+
+</body>
+</html>

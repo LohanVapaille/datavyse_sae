@@ -1,0 +1,115 @@
+  :root {
+
+    --maincolor: #FAEBCD;
+    --policetitle : "Instrument Serif", serif;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Instrument Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--maincolor);
+
+  }
+
+  .billboard {
+
+    display: flex;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    background-image: url('../img/disque.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+   background-position: left 0% bottom 65%;
+
+
+  }
+
+  .billboard .theweeknd{
+
+    position: absolute;
+    bottom: 20px;
+    height: auto;
+    width: 370px;
+  }
+
+.billboard .genre {
+  opacity: 23%;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  transform-origin: bottom right;
+  transform: rotate(270deg);
+
+}
+
+.billboard .banniere{
+
+font-family: var(--policetitle);
+color: #FAEBCD;
+position: absolute;
+bottom: 20px;
+width: 100%;
+background-color: black;
+text-align: center;
+font-size: 4rem;
+padding: 6px;
+z-index: 20;
+
+
+
+
+
+
+}
+
+  h1 {
+
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5rem;
+
+
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  select {
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+  .bar-container {
+    margin-top: 20px;
+    width: 400px;
+  }
+
+  .bar {
+    height: 30px;
+    margin: 5px 0;
+    background-color: #3498db;
+    text-align: right;
+    color: white;
+    line-height: 30px;
+    padding-right: 5px;
+    transition: width 0.5s;
+  }

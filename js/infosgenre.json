@@ -1,0 +1,72 @@
+[
+  {
+    "genre": "Hip Hop / RAP",
+    "couleur": "#FF5733",
+    "description": "Musique née dans les années 70 à New York, caractérisée par le rap et les beats."
+  },
+  {
+    "genre": "R&B",
+    "couleur": "#33FF57",
+    "description": "Rhythm and Blues, mélange de soul, funk et pop moderne."
+  },
+  {
+    "genre": "Rock",
+    "couleur": "#3357FF",
+    "description": "Genre musical énergique basé sur la guitare électrique et la batterie."
+  },
+  {
+    "genre": "Soul",
+    "couleur": "#FF33A8",
+    "description": "Musique expressive d’origine afro-américaine, centrée sur la voix et les émotions."
+  },
+  {
+    "genre": "Country",
+    "couleur": "#FFA533",
+    "description": "Musique folk américaine traditionnelle avec guitares acoustiques et thèmes ruraux."
+  },
+  {
+    "genre": "Blues",
+    "couleur": "#33FFF5",
+    "description": "Musique afro-américaine avec progressions d’accords spécifiques et thèmes mélancoliques."
+  },
+  {
+    "genre": "Jazz",
+    "couleur": "#8E44AD",
+    "description": "Genre musical complexe et improvisé, originaire des États-Unis."
+  },
+  {
+    "genre": "Pop",
+    "couleur": "#F1C40F",
+    "description": "Musique populaire, facile d’écoute et mélodique."
+  },
+  {
+    "genre": "Rock & Roll",
+    "couleur": "#E74C3C",
+    "description": "Prédécesseur du rock moderne, musique rythmée et dansante des années 50-60."
+  },
+  {
+    "genre": "Pop Standards",
+    "couleur": "#3498DB",
+    "description": "Chansons populaires classiques, souvent des reprises ou ballades célèbres."
+  },
+  {
+    "genre": "Folk",
+    "couleur": "#2ECC71",
+    "description": "Musique traditionnelle ou acoustique racontant des histoires ou légendes."
+  },
+  {
+    "genre": "House/Electronic",
+    "couleur": "#9B59B6",
+    "description": "Musique électronique centrée sur le rythme et les synthétiseurs."
+  },
+  {
+    "genre": "Métal",
+    "couleur": "#34495E",
+    "description": "Musique rock intense et agressive, avec guitares saturées et batterie lourde."
+  },
+  {
+    "genre": "Punk",
+    "couleur": "#FF0000",
+    "description": "Musique brute et rapide, souvent contestataire et énergique."
+  }
+]
