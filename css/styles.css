@@ -2,6 +2,7 @@
 
     --maincolor: #FAEBCD;
     --policetitle : "Instrument Serif", serif;
+    --policesecondtiltle : "Inria Serif", serif;
   }
 
   *,
@@ -32,12 +33,6 @@
     height: 100vh;
     width: 100%;
     justify-content: center;
-    background-image: url('../img/disque.png');
-    background-size: 70%;
-    background-repeat: no-repeat;
-   background-position: left 0% bottom 65%;
-
-
   }
 
   .billboard .theweeknd{
@@ -46,6 +41,17 @@
     bottom: 20px;
     height: auto;
     width: 370px;
+  }
+
+  .billboard .disk{
+
+    position: absolute;
+    width: 300px;
+    left: 0;
+    top: 5vh;
+    
+
+
   }
 
 .billboard .genre {
@@ -62,7 +68,7 @@
 .billboard .banniere{
 
 font-family: var(--policetitle);
-color: #FAEBCD;
+color: #eeb138;
 position: absolute;
 bottom: 20px;
 width: 100%;
@@ -73,19 +79,76 @@ padding: 6px;
 z-index: 20;
 
 
-
-
-
-
 }
 
   h1 {
 
-    font-family: "Instrument Serif", serif;
+    font-family: var(--policetitle);
     font-weight: 400;
     font-style: normal;
     font-size: 5rem;
 
+
+  }
+
+  h2{
+    font-family: var(--policesecondtiltle);
+    font-weight: 200;
+    margin-top: 20px;
+    margin: auto;
+    
+
+  }
+
+  .explication-container{
+
+    height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+
+    .explication-container .title{
+
+    display: flex;
+    flex-direction: column;
+  }
+
+.explication-container .title img{
+
+    width:300px;
+    margin: auto;
+  }
+
+
+  .explication-content{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+  }
+
+  .explication-content p{
+
+    max-width: 55%;
+    margin-left: 20px;
+  }
+  .explication-container .ombre{
+
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 450px;
+
+  }
+
+  .explication-container .micro{
+
+    position: absolute;
+    left: 0px;
+    top: -20px;
+    width: 200px;
 
   }
 
