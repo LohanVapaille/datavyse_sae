@@ -7,7 +7,53 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  canvas {
+    border: 1px solid #ffffff;
+    margin-top: 20px;
+    background-color: #f63f3f;
+  }
 
+  #timelineContainer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+  }
+
+  #timeline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .yearBox {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #999;
+  }
+
+  .yearBox:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+
+  .yearBox:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .yearBox.selected {
+    border: 2px solid #3498db;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
 
@@ -40,7 +86,156 @@
   <div id="timeline"></div>
 </div>
 
+<script>
+Promise.all([
+  fetch('js/data.json').then(res => res.json()),
+  fetch('js/infosgenre.json').then(res => res.json())
+])
+.then(([rawData, genreInfos]) => {
 
+  const genreColorMap = {};
+  genreInfos.forEach(g => genreColorMap[g.genre] = g.couleur);
+
+  const processedData = rawData.map(record => {
+    const year = record.année;
+    const genreValues = Object.keys(record)
+      .filter(key => key !== "année")
+      .map(genre => ({ name: genre, value: Number(record[genre]) || 0 }));
+
+    const top5Genres = genreValues.sort((a, b) => b.value - a.value).slice(0, 5);
+    const sumTop5 = top5Genres.reduce((sum, g) => sum + g.value, 0);
+    const otherValue = Math.max(0, 100 - sumTop5);
+
+    const formattedRecord = { année: year };
+    top5Genres.forEach(g => formattedRecord[g.name] = g.value);
+    formattedRecord.Autre = otherValue;
+
+    return formattedRecord;
+  });
+
+  const canvas = document.getElementById('chartCanvas');
+  const ctx = canvas.getContext('2d');
+  const timeline = document.getElementById('timeline');
+  let currentRecord = processedData[0];
+  let animationFrame;
+
+  // Création de la frise
+  processedData.forEach(record => {
+    const box = document.createElement('div');
+    box.className = 'yearBox';
+    if (record.année % 5  === 0) box.textContent = record.année;
+    box.dataset.year = record.année;
+    if (record.année === currentRecord.année) box.classList.add('selected');
+    timeline.appendChild(box);
+
+    box.addEventListener('click', () => {
+      const selectedYear = Number(box.dataset.year);
+      document.querySelectorAll('.yearBox').forEach(b => b.classList.remove('selected'));
+      box.classList.add('selected');
+      const record = processedData.find(r => r.année === selectedYear);
+      if (record) animateTo(record);
+    });
+  });
+
+  function drawChart(record, progress = 1) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const paddingLeft = 150;
+    const paddingTop = 50;
+    const barHeight = 40;
+    const barGap = 20;
+    const maxWidth = canvas.width - paddingLeft - 50;
+
+    const genres = Object.entries(record).filter(([key]) => key !== 'année');
+
+    genres.forEach(([genre, value], i) => {
+      const y = paddingTop + i * (barHeight + barGap);
+      const barWidth = (value / 100) * maxWidth * progress;
+
+      // Nom du genre
+      ctx.fillStyle = '#000';
+      ctx.textAlign = 'right';
+      ctx.font = '16px Arial';
+      ctx.fillText(genre, paddingLeft - 10, y + barHeight / 1.5);
+
+      // Barre avec couleur spécifique
+      const color = genreColorMap[genre] || '#999';
+      ctx.fillStyle = color;
+      ctx.fillRect(paddingLeft, y, barWidth, barHeight);
+
+      // Pourcentage sur la barre
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left';
+      ctx.fillText(Math.round(value * progress) + '%', paddingLeft + 5, y + barHeight / 1.5);
+    });
+
+    // Axe horizontal
+    const axisY = paddingTop + genres.length * (barHeight + barGap) - barGap/2;
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(paddingLeft, axisY);
+    ctx.lineTo(paddingLeft + maxWidth, axisY);
+    ctx.stroke();
+
+    ctx.fillStyle = '#000';
+    ctx.font = '14px Arial';
+    ctx.textAlign = 'center';
+    for (let val = 0; val <= 100; val += 10) {
+      const x = paddingLeft + (val / 100) * maxWidth;
+      ctx.fillText(val + '%', x, axisY + 20);
+
+      ctx.beginPath();
+      ctx.moveTo(x, axisY);
+      ctx.lineTo(x, axisY + 10);
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = '#000';
+    ctx.font = '20px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText(`${record.année}`, 10, 30);
+  }
+
+  function animateTo(record) {
+    const duration = 500;
+    const startTime = performance.now();
+    const startValues = Object.entries(currentRecord)
+      .filter(([key]) => key !== 'année')
+      .map(([k,v]) => v);
+    const targetValues = Object.entries(record)
+      .filter(([key]) => key !== 'année')
+      .map(([k,v]) => v);
+
+    cancelAnimationFrame(animationFrame);
+
+    function animate(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const intermediateRecord = { année: record.année };
+      targetValues.forEach((v, i) => {
+        intermediateRecord[Object.keys(record).filter(k => k !== 'année')[i]] =
+          startValues[i] + (v - startValues[i]) * progress;
+      });
+
+      drawChart(intermediateRecord);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        currentRecord = record;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  drawChart(currentRecord);
+
+})
+.catch(err => console.error(err));
+</script>
 
 </body>
 </html>
