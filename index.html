@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<title>DataVyse</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>DataVyse</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
 
 </head>
+
 <body>
 
   <div class="billboard">
-<h1>BILLBOARD DATA</h1>
-<p class="genre">Hip/Hop R&B Rock Folk Pop Country </p>
-<img class="theweeknd" src="img/theweeknd.png" alt="theweeknd">
-<img src="img/disk.png" alt="écouter une musique" class="disk">
-<div class="banniere"><p>THE HISTORY OF MUSIC</p></div>
+    <h1>BILLBOARD DATA</h1>
+    <p class="genre">Hip/Hop R&B Rock Folk Pop Country </p>
+    <img class="theweeknd" src="img/theweeknd.png" alt="theweeknd">
+    <img src="img/disk.png" alt="écouter une musique" class="disk">
+    <div class="banniere banniereposition">
+      <p>THE HISTORY OF MUSIC</p>
+    </div>
 
   </div>
 
   <div class="explication-container">
-<img class="micro" src="img/microphone.png" alt="">
-    <div class="title"><h2>From the Bronx to the BillBoard - Beats that shook the world.</h2><img src="img/signalsonore.png" alt=""></div>
-    <div class="explication-content">
-      
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet placeat hic dolorum. Officiis numquam sunt voluptates eaque facilis ex, eveniet vel doloribus ullam atque rerum consequatur quis temporibus non ad sint nobis voluptatum voluptatem sed nesciunt hic! Sint vel dolorem ad voluptatem hic. Consequatur amet alias temporibus iusto magni quae enim nemo ipsum. Amet et dicta, quas nihil recusandae quam nobis quae, minus quos natus sequi earum eveniet, sed asperiores alias distinctio esse exercitationem. Illum iusto magni laudantium molestiae repellendus totam aut perferendis provident velit vitae unde praesentium cumque sint odio consequatur ullam, eius sunt modi autem itaque. Unde, cum.</p>
-
-   
-
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet placeat hic dolorum. Officiis numquam sunt voluptates eaque facilis ex, eveniet vel doloribus ullam atque rerum consequatur quis temporibus non ad sint nobis voluptatum voluptatem sed nesciunt hic! Sint vel dolorem ad voluptatem hic. Consequatur amet alias temporibus iusto magni quae enim nemo ipsum. Amet et dicta, quas nihil recusandae quam nobis quae, minus quos natus sequi earum eveniet, sed asperiores alias distinctio esse exercitationem. Illum iusto magni laudantium molestiae repellendus totam aut perferendis provident velit vitae unde praesentium cumque sint odio consequatur ullam, eius sunt modi autem itaque. Unde, cum.</p>
-    <img class='ombre'src="img/ombre-chanteur.png" alt=""></div>
+    <h2>THE BIRTH OF THE BILLBOARD</h2>
+    <div class="text">
+      <p>Le Billboard a été créé en 1894 à Cincinnati (Ohio, USA) par William H. Donaldson et James Hennegan. À l’origine, ce n’était pas un magazine musical, mais une revue consacrée à la publicité extérieure (les panneaux d’affichage, ou “billboards”).</p>
+      <p>À partir des années 1930-1940, Billboard commence à publier des classements musicaux, devenant la référence mondiale. Créé en 1894 à Cincinnati par William H. Donaldson et James Hennegan, il parlait d’abord de publicité extérieure.</p>
+    </div>
+<!-- <img src="img/silhouettenyc.png" alt=""> -->
   </div>
 
-<h2>Graphique interactif par année (Top 5 + Autre)</h2>
+  <div class="explication-container">
+    <h2>BILLBOARD'S INFLUENCE ON THE MUSIC INDUSTRY</h2>
+    <div class="text">
+      <p>Le Billboard a transformé le monde de la musique en changeant la façon de mesurer le succès. Grâce à ses classements précis, basés sur les ventes, la radio puis le streaming, il a permis de comparer les artistes sur une échelle mondiale et plus juste.</p>
+      <p>À partir des années 1930-1940, Billboard commence à publier des classements musicaux, devenant la référence mondiale. Créé en 1894 à Cincinnati par William H. Donaldson et James Hennegan, il parlait d’abord de publicité extérieure.</p>
+    </div>
 
+    <h2>What's about our data ?</h2>
 
+     <p class="text-carre">Nos données regroupent les informations issues des classements Billboard, permettant d’analyser les tendances musicales au fil du temps : les artistes les plus populaires, les genres dominants, et l’évolution du succès musical à travers les décennies.</p>
 
-<canvas id="chartCanvas" width="800" height="490"></canvas>
+     <img class="ombre ombre1" src="img/ombre-chanteur.png" alt="">
+     <img class="ombre ombre2" src="img/ombre-chanteur.png" alt="">
 
-<div id="timelineContainer">
-  
-  <div id="timeline"></div>
-</div>
+  </div>
 
-<script src="js/script.js">
-</script>
+  <div class="datacontainer">
+
+    <div class="banniere">
+      <p>PRESENTATION OF OUR DATA</p>
+    </div>
+
+  </div>
+
+  <canvas id="chartCanvas" width="800" height="490"></canvas>
+
+  <div id="timelineContainer">
+
+    <div id="timeline"></div>
+  </div>
+
+  <script src="js/script.js">
+  </script>
+
+ <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Data Sons</h4>
+        <p>Projet étudiant d’analyse et de visualisation de données musicales.</p>
+        <p>Sources : <a href="https://www.billboard.com" target="_blank">Billboard</a></p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Informations</h4>
+        
+        <p>Hébergement : O2Switch</p>
+        <p>Usage : projet à but pédagogique uniquement</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <a href="mailto:adam.kassioui@gmail.com">Adam Kassioui</a>
+        <a href="mailto:lohan.vapaille@gmail.com">Lohan Vapaille</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Data Sons — Projet étudiant réalisé par Adam Kassioui et Lohan Vapaille
+    </div>
+  </footer>
 
 </body>
+
 </html>
