@@ -68,5 +68,10 @@
     "genre": "Punk",
     "couleur": "#FF0000",
     "description": "Musique brute et rapide, souvent contestataire et énergique."
+  },
+  {
+    "genre": "Autre",
+    "couleur": "#999",
+    "description": ""
   }
 ]

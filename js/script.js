@@ -118,7 +118,7 @@ Promise.all([
             }
             timeline.appendChild(box);
 
-            // On ajoute un écouteur d'événement pour réagir au clic
+            // On ajoute un écouteur d'événement pour réagir au clic sur la frise
             (function (boxElement) {
                 boxElement.addEventListener('click', function () {
                     // On récupère l'année select depuis data-year mais comme c un string on la converti!
@@ -133,8 +133,8 @@ Promise.all([
                     // Ajouter la classe selected à la case cliquée
                     boxElement.classList.add('selected');
                     var foundRecord = null;
-                    // Trouver dans processedData l'objet correspondant à selectedYear
-
+                   
+                    // parcours processedData pour trouver l'objet qui correspond à selectedYear
                     for (var rr = 0; rr < processedData.length; rr++) {
                         if (processedData[rr].année === selectedYear) {
                             foundRecord = processedData[rr];
@@ -153,11 +153,12 @@ Promise.all([
         
         function drawChart(record, progress) {
             // progress est la proportion d'animation (1 = complet). si non fourni -> 1
-            if (typeof progress === 'undefined') {
+            if (progress === undefined) {
                 progress = 1;
             }
+   
 
-            // Nettoie le canvas
+            // reset le canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Paramètres d'affichage
@@ -169,10 +170,10 @@ Promise.all([
 
             // On extrait les paires [genre, valeur] sauf la clé 'année'
             var genrePairs = [];
-            for (var k in record) {
-                if (!record.hasOwnProperty(k)) continue;
-                if (k === 'année') continue;
-                genrePairs.push([k, record[k]]);
+            for (var cle in record) {
+                if (!record.hasOwnProperty(cle)) continue;
+                if (cle === 'année') continue;
+                genrePairs.push([cle, record[cle]]);
             }
 
             // Pour chaque genre, on dessine le texte (nom) puis la barre
@@ -191,9 +192,7 @@ Promise.all([
 
                 // Barre: on cherche la couleur dans genreColorMap
                 var color = genreColorMap[genreName];
-                if (!color) {
-                    color = '#999'; // couleur par défaut si non trouvée
-                }
+                
                 ctx.fillStyle = color;
                 ctx.fillRect(paddingLeft, y, barWidth, barHeight);
 
@@ -234,31 +233,29 @@ Promise.all([
             ctx.fillText(String(record.année), 10, 30);
         }
 
-        // Dessin initial
-        drawChart(currentRecord);
-
-        // -----------------------------
-        // 6) Animation entre deux enregistrements
-        // -----------------------------
-        function animateTo(targetRecord) {
+        // Animation entre deux enregistrements
+        var depart = currentRecord
+        drawChart(depart);
+        
+        function animateTo(arrivee) {
             var duration = 500; // durée en ms
             var startTime = performance.now();
-
-            // Récupérer les valeurs de départ (currentRecord) et d'arrivée (targetRecord) dans le même ordre de clés
+            
+            // Récupérer les valeurs de départ (currentRecord) et d'arrivée dans le même ordre de clés
             var keys = [];
-            for (var k in targetRecord) {
-                if (!targetRecord.hasOwnProperty(k)) continue;
+            for (var k in arrivee) {
+                if (!arrivee.hasOwnProperty(k)) continue;
                 if (k === 'année') continue;
                 keys.push(k);
             }
 
-            // startValues et targetValues doivent correspondre à keys par index
-            var startValues = [];
-            var targetValues = [];
+            // startValues et valeurarrivee doivent correspondre à keys par index
+            var valeurDepart = [];
+            var valeurArrivee = [];
             for (var iKey = 0; iKey < keys.length; iKey++) {
                 var keyName = keys[iKey];
-                startValues.push(Number(currentRecord[keyName]) || 0);
-                targetValues.push(Number(targetRecord[keyName]) || 0);
+                valeurDepart.push(Number(depart[keyName]) || 0);
+                valeurArrivee.push(Number(arrivee[keyName]) || 0);
             }
 
             // Annule toute animation en cours
@@ -273,10 +270,10 @@ Promise.all([
                 if (progress > 1) progress = 1;
 
                 // Construire un record intermédiaire selon la progression
-                var intermediate = { 'année': targetRecord.année };
+                var intermediate = { 'année': arrivee.année };
                 for (var iKey2 = 0; iKey2 < keys.length; iKey2++) {
                     var kname = keys[iKey2];
-                    var interpolatedValue = startValues[iKey2] + (targetValues[iKey2] - startValues[iKey2]) * progress;
+                    var interpolatedValue = valeurDepart[iKey2] + (valeurArrivee[iKey2] - valeurDepart[iKey2]) * progress;
                     intermediate[kname] = interpolatedValue;
                 }
 
@@ -288,7 +285,7 @@ Promise.all([
                     animationFrameId = requestAnimationFrame(step);
                 } else {
                     // Fin de l'animation : on met à jour currentRecord
-                    currentRecord = targetRecord;
+                    depart = arrivee;
                     animationFrameId = null;
                 }
             }
@@ -297,8 +294,4 @@ Promise.all([
             animationFrameId = requestAnimationFrame(step);
         }
 
-    })
-    .catch(function (err) {
-        // Si une erreur survient à n'importe quel moment (fetch ou traitement), on l'affiche
-        console.error('Une erreur est survenue :', err);
     });

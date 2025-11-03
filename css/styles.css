@@ -83,8 +83,7 @@ h1 {
 }
 
 .explication-container {
-  height: 100vh;
-  width: 100%;
+  
   position: relative;
   /* Dégradé progressif du haut vers le bas */
   display: flex;
@@ -100,6 +99,7 @@ h1 {
   display: flex;
   gap: 30px;
   font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 h2 {
@@ -112,6 +112,23 @@ h2 {
   margin-top: 10px;
 }
 
+.para{
+
+  background: var(--maincolor);
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+}
+.texte1{
+
+  margin-bottom: 15px;
+}
+
+.mbnegatif{
+
+  margin-bottom: -60px;
+}
+
 .text-carre {
   background-color: var(--colortextbg);
   color: var(--maincolor);
@@ -121,7 +138,9 @@ h2 {
   border-radius: 20px;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
+
 
 .ombre {
   position: absolute;
@@ -167,6 +186,23 @@ select {
   transition: width 0.5s;
 }
 
+
+.nyc{
+width: 100%;
+
+}
+
+.nyc2{
+  transform: scaleX(-1) scaleY(-1);
+
+}
+
+.hauteurauto{
+
+  height: 150vh;
+}
+
+
 canvas {
   margin-top: 20px;
 }
@@ -196,10 +232,26 @@ canvas {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.8rem;
   background-color: var(--maincolor);
-   /* border-bottom: 2px solid #000000; */
+  
 }
+
+.yearBox:hover {
+  border-right: #000 2px solid;
+  border-left: #000 2px solid;
+  
+}
+
+.yearBox::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  width: 2px;
+  background-color: #000;}
 
 
 
