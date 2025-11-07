@@ -1,0 +1,67 @@
+:root {
+  --maincolor: #faebcd;
+  --policetitle: "Instrument Serif", serif;
+  --policesecondtiltle: "Inria Serif", serif;
+  --colortextbg: #4b4b4b;
+  --colorlight: #eeb138;
+}
+
+canvas {
+  margin-top: 20px;
+  
+}
+
+#timelineContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+#timeline {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  color: #000000;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.yearBox {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: var(--maincolor);
+  
+}
+
+.yearBox:hover {
+  border-right: #000 2px solid;
+  border-left: #000 2px solid;
+  
+}
+
+.yearBox::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  width: 2px;
+  background-color: #000;}
+
+
+
+
+.yearBox.selected {
+  border-left: 2px solid #3498db;
+  border-right: 2px solid #3498db;
+  font-weight: bold;
+}

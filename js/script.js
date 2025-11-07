@@ -21,6 +21,7 @@ Promise.all([
 
         // on veut un objet où la clé est le nom du genre et la valeur est la couleur
         var genreColorMap = {};
+        
         for (var i = 0; i < genreInfos.length; i++) {
             var info = genreInfos[i];
             // On met la couleur dans l'objet en utilisant le nom du genre comme clé
@@ -88,14 +89,17 @@ Promise.all([
         }
         console.log(processedData);
 
+        
 
         var canvas = document.getElementById('chartCanvas');
         var ctx = canvas.getContext('2d');
         var timeline = document.getElementById('timeline');
 
-        //on prend la première année par défaut)
-        var currentRecord = processedData[0];
+        //on prend 1976 par défaut)
+        var currentRecord = processedData[17];
         var animationFrameId = null;
+         // Affiche l'année initiale dans le h3
+    yearTitle.textContent = String(currentRecord.année);
 
         // Création de la timeline: on ajoute une div par année
         for (var iBox = 0; iBox < processedData.length; iBox++) {
@@ -142,9 +146,13 @@ Promise.all([
                         }
                     }
 
+                    
+
                     // Si trouvé, on lance l'animation vers cette année
                     if (foundRecord !== null) {
+                        yearTitle.textContent = String(selectedYear);
                         animateTo(foundRecord);
+                        
                     }
                 });
             })(box);
@@ -225,12 +233,6 @@ Promise.all([
                 ctx.lineTo(x, axisY + 10);
                 ctx.stroke();
             }
-
-            // Afficher l'année en haut à gauche
-            ctx.fillStyle = '#000';
-            ctx.font = '20px Arial';
-            ctx.textAlign = 'left';
-            ctx.fillText(String(record.année), 10, 30);
         }
 
         // Animation entre deux enregistrements
@@ -293,5 +295,129 @@ Promise.all([
             // Lancer la boucle d'animation
             animationFrameId = requestAnimationFrame(step);
         }
+
+
+    //--------------------------------------------------------------------------------
+        // --- Prépare une map complète d'infos par genre (couleur + description + image si dispo) ---
+var genreInfoMap = {}; // clé = nom du genre -> objet { couleur, description, image }
+for (var i = 0; i < genreInfos.length; i++) {
+    var info = genreInfos[i];
+    // On copie la couleur et d'éventuelles autres infos (description, image) s'il y en a
+    genreInfoMap[info.genre] = {
+        couleur: info.couleur,
+        description: info.description || '', // si ton JSON a un champ 'description'
+        image: info.image || ''              // si ton JSON a un champ 'image' (url)
+    };
+}
+// (garde l'ancien map si tu t'en sers ailleurs)
+var genreColorMap = {};
+for (var g in genreInfoMap) genreColorMap[g] = genreInfoMap[g].couleur;
+
+// --- Crée la div tooltip (hidden by default) ---
+var tooltip = document.createElement('div');
+tooltip.id = 'chartTooltip';
+tooltip.style.position = 'fixed';
+tooltip.style.display = 'none';
+tooltip.style.pointerEvents = 'none'; // ne bloque pas la souris
+tooltip.style.padding = '10px';
+tooltip.style.background = 'rgba(255,255,255,0.95)';
+tooltip.style.border = '1px solid rgba(0,0,0,0.15)';
+tooltip.style.boxShadow = '0 6px 18px rgba(0,0,0,0.12)';
+tooltip.style.borderRadius = '6px';
+tooltip.style.maxWidth = '260px';
+tooltip.style.zIndex = 9999;
+tooltip.style.fontSize = '14px';
+tooltip.style.color = '#111';
+document.body.appendChild(tooltip);
+
+// Helper pour cacher/montrer
+function showTooltip(html, clientX, clientY) {
+    tooltip.innerHTML = html;
+    tooltip.style.display = 'block';
+    // Positionne la tooltip en évitant de sortir de l'écran
+    var pad = 12;
+    var tw = tooltip.offsetWidth;
+    var th = tooltip.offsetHeight;
+    var left = clientX + pad;
+    if (left + tw > window.innerWidth - 8) left = clientX - pad - tw;
+    var top = clientY + pad;
+    if (top + th > window.innerHeight - 8) top = clientY - pad - th;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+}
+function hideTooltip() {
+    tooltip.style.display = 'none';
+}
+
+// --- Détection du survol sur le canvas ---
+// (on se base sur les mêmes paramètres que drawChart)
+canvas.addEventListener('mousemove', function (e) {
+    // calcule position souris relative au canvas en tenant compte du scaling CSS -> canvas internal pixels
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / rect.width;
+    var scaleY = canvas.height / rect.height;
+    var mouseX = (e.clientX - rect.left) * scaleX;
+    var mouseY = (e.clientY - rect.top) * scaleY;
+
+    // mêmes paramètres que drawChart — garde cohérence si tu modifies drawChart
+    var paddingLeft = 150;
+    var paddingTop = 50;
+    var barHeight = 40;
+    var barGap = 20;
+    var maxWidth = canvas.width - paddingLeft - 50;
+
+    // recrée la liste des paires (même logique que drawChart)
+    var genrePairs = [];
+    // on s'appuie sur 'depart' (ou sur current visible record)
+    // pour être sûr on peut retrouver le dernier dessiné : on calcule à partir 'depart'
+    var latestRecord = depart || processedData[0];
+    for (var cle in latestRecord) {
+        if (!latestRecord.hasOwnProperty(cle)) continue;
+        if (cle === 'année') continue;
+        genrePairs.push([cle, latestRecord[cle]]);
+    }
+
+    // retrouver l'index de la barre sous la souris
+    var relY = mouseY - paddingTop;
+    var idx = Math.floor(relY / (barHeight + barGap));
+    var hovering = false;
+    if (idx >= 0 && idx < genrePairs.length) {
+        var yTop = paddingTop + idx * (barHeight + barGap);
+        if (mouseY >= yTop && mouseY <= yTop + barHeight) {
+            // on est verticalement dans la barre ; maintenant vérifie la largeur (optionnel)
+            var genreValue = Number(genrePairs[idx][1]) || 0;
+            var barWidth = (genreValue / 100) * maxWidth;
+            // si tu veux que le hover s'active même quand on est à droite du bout de la barre,
+            // remplace la condition suivante par `if (mouseX >= paddingLeft && mouseX <= paddingLeft + maxWidth)`
+            if (mouseX >= paddingLeft && mouseX <= paddingLeft + barWidth) {
+                hovering = true;
+            }
+        }
+    }
+
+    if (hovering) {
+        var genreName = genrePairs[idx][0];
+        // récupére infos (description + image) depuis genreInfoMap si dispo
+        var info = genreInfoMap[genreName] || {};
+        var imgHtml = '';
+        if (info.image) {
+            // protection minimal : échappe l'URL si tu veux, ici on l'insère brute
+            imgHtml = '<img src="' + info.image + '" alt="' + genreName + '" style="max-width:220px;max-height:120px;display:block;margin-top:8px;border-radius:4px;object-fit:cover;">';
+        }
+        var descHtml = info.description ? '<div style="margin-top:6px;line-height:1.35;">' + info.description + '</div>' : '';
+        var html = '<strong>' + genreName + '</strong>' + descHtml + imgHtml;
+
+        showTooltip(html, e.clientX, e.clientY);
+        // tu peux aussi surligner visuellement la barre en redessinant légèrement (optionnel)
+    } else {
+        hideTooltip();
+    }
+});
+
+// Cacher tooltip si on sort du canvas
+canvas.addEventListener('mouseleave', function () {
+    hideTooltip();
+});
+
 
     });

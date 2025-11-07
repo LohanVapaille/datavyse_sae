@@ -1,0 +1,65 @@
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#60a5fa;
+      --muted:#9aa7bf;
+        --maincolor: #faebcd;
+  --policetitle: "Instrument Serif", serif;
+  --policesecondtiltle: "Inria Serif", serif;
+  --colortextbg: #4b4b4b;
+  --colorlight: #eeb138;
+    }
+
+    .card{
+      
+      margin: auto;
+      width:100%;
+      margin-top: 20px;
+      max-width:960px;
+      background:rgba(255,255,255,0.03);
+      border-radius:12px;
+      padding:20px;
+      
+    }
+    .card h1{ margin:0 0 8px 0; font-size:20px; }
+    .card p { margin:0 0 14px 0; color:var(--muted); font-size:13px; }
+    .controls {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    select, button {
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.06);
+      background-color: #0f1724;
+      color: var(--colorlight);
+      
+      font-size:14px;
+    }
+    .legend {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .canvas-wrap {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      padding:16px;
+      border-radius:10px;
+    }
+
+    .footer{
+
+        background-color: #222;
+  color: var(--colorlight);
+  padding: 30px 15px;
+  margin-top: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+    }

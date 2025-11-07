@@ -2,7 +2,7 @@
   --maincolor: #faebcd;
   --policetitle: "Instrument Serif", serif;
   --policesecondtiltle: "Inria Serif", serif;
-  --colortextbg: #434343;
+  --colortextbg: #4b4b4b;
   --colorlight: #eeb138;
 }
 
@@ -20,34 +20,68 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: var(--maincolor);
+  background-image: url('../img/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
 }
+
+header {
+      background-color: transparent;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    nav a {
+      color: var(--colortextbg);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
 
 .billboard {
   display: flex;
   position: relative;
-  height: 100vh;
+  gap: 100px;
+  height: 70vh;
   width: 100%;
   justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url('../img/homefond.png');
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  
 }
 
-.billboard .theweeknd {
+/* .billboard .theweeknd {
   position: absolute;
   bottom: 20px;
   height: auto;
   width: 370px;
-}
+} */
 
 .billboard .disk {
-  position: absolute;
-  width: 300px;
-  left: 0;
-  top: 5vh;
+  
+  width: 400px;
+  
 }
 
-.billboard .genre {
+/* .billboard .genre {
   opacity: 23%;
   font-size: 2.5rem;
   position: absolute;
@@ -55,12 +89,11 @@ body {
   right: 0px;
   transform-origin: bottom right;
   transform: rotate(270deg);
-}
+} */
 
 .banniere {
   font-family: var(--policetitle);
   color: var(--colorlight);
-
   width: 100%;
   background-color: rgb(21, 21, 21);
   text-align: center;
@@ -74,12 +107,36 @@ body {
   bottom: 20px;
 }
 
+.left a{
+
+  background-color: black;
+  color: var(--colorlight);
+  text-decoration: none;
+margin-right: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* transition fluide */
+ 
+}
+
+
+
+
+
+.left a:hover{
+
+  color:black;
+  background-color: white;
+  
+}
+
 h1 {
   font-family: var(--policetitle);
   font-weight: 400;
   font-style: normal;
-  font-size: 5rem;
-  color: black;
+  font-size: 9rem;
+  color:white;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .explication-container {
@@ -92,12 +149,13 @@ h1 {
 }
 
 .text {
-  background-color: var(--colortextbg);
+  
   color: var(--maincolor);
   padding: 50px;
   margin-top: 20px;
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -105,29 +163,60 @@ h1 {
 h2 {
   font-family: var(--policetitle);
   font-weight: 400;
-  color: black;
-  width: 600px;
+  color: var(--colortextbg);
+  width: 800px;
   font-size: 4rem;
   text-align: center;
-  margin-top: 10px;
+  
+}
+
+
+.maincolor{
+  color:var(--maincolor)
 }
 
 .para{
 
-  background: var(--maincolor);
-  color: black;
+  
+  color: var(--colortextbg);
   padding: 30px;
   border-radius: 10px;
+  margin-top: 10px;
+  width: 70%;
+  font-size: 1.5rem;
 }
 .texte1{
 
   margin-bottom: 15px;
 }
 
-.mbnegatif{
+.barre-content{
 
-  margin-bottom: -60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
+
+.barre-content img{
+
+  width: 500px;
+}
+
+h3{
+
+  font-size: 3.5rem;
+  color: #222;
+  font-family: var(--policetitle);
+
+}
+
+.card h3{
+
+  font-size: 2.2rem;
+}
+
+
 
 .text-carre {
   background-color: var(--colortextbg);
@@ -170,25 +259,9 @@ select {
   padding: 5px;
 }
 
-.bar-container {
-  margin-top: 20px;
-  width: 400px;
-}
-
-.bar {
-  height: 30px;
-  margin: 5px 0;
-  background-color: #3498db;
-  text-align: right;
-  color: white;
-  line-height: 30px;
-  padding-right: 5px;
-  transition: width 0.5s;
-}
-
-
 .nyc{
 width: 100%;
+margin-bottom: 70px;
 
 }
 
@@ -197,69 +270,8 @@ width: 100%;
 
 }
 
-.hauteurauto{
-
-  height: 150vh;
-}
 
 
-canvas {
-  margin-top: 20px;
-}
-
-#timelineContainer {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-}
-
-#timeline {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  color: #000000;
-
-  border-top: 2px solid #000000;
-  border-bottom: 2px solid #000000;
-}
-
-.yearBox {
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.8rem;
-  background-color: var(--maincolor);
-  
-}
-
-.yearBox:hover {
-  border-right: #000 2px solid;
-  border-left: #000 2px solid;
-  
-}
-
-.yearBox::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 50%;
-  width: 2px;
-  background-color: #000;}
-
-
-
-
-.yearBox.selected {
-  border: 2px solid #3498db;
-  font-weight: bold;
-}
 
 footer {
   background-color: #222;

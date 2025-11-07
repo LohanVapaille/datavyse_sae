@@ -5,35 +5,51 @@
   <meta charset="UTF-8">
   <title>DataVyse</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/barres.css">
+  <link rel="stylesheet" href="css/graphique.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> 
+
 
 </head>
 
+
 <body>
 
+
+
   <div class="billboard">
-    <h1>BILLBOARD DATA</h1>
-    <p class="genre">Hip/Hop R&B Rock Folk Pop Country </p>
-    <img class="theweeknd" src="img/theweeknd.png" alt="theweeknd">
-    <img src="img/disk.png" alt="écouter une musique" class="disk">
-    <div class="banniere banniereposition">
-      <p>THE HISTORY OF MUSIC</p>
+    <div class="left">
+      <h1>VINYL TO VIRAL</h1>
+      <a href="#" class="btn btn1">Découvrir</a>
+      <a href="#" class="btn btn2">Statistiques</a>
     </div>
+    <!-- <p class="genre">Hip/Hop R&B Rock Folk Pop Country </p> -->
+    <!-- <img class="theweeknd" src="img/theweeknd.png" alt="theweeknd"> -->
+    <img src="img/disk2.png" alt="écouter une musique" class="disk">
+    <!-- <div class="banniere banniereposition">
+      <p>THE HISTORY OF MUSIC</p>
+    </div> -->
 
   </div>
 
-  <div class="explication-container">
+  <div class="explication-container ">
     <h2>THE BIRTH OF THE BILLBOARD</h2>
     <div class="text texte1 ">
-      <p class="para">Le Billboard a été créé en 1894 à Cincinnati (Ohio, USA) par William H. Donaldson et James Hennegan. À l’origine, ce n’était pas un magazine musical, mais une revue consacrée à la publicité extérieure (les panneaux d’affichage, ou “billboards”).</p>
-      <p class="para">À partir des années 1930-1940, Billboard commence à publier des classements musicaux, devenant la référence mondiale. Créé en 1894 à Cincinnati par William H. Donaldson et James Hennegan, il parlait d’abord de publicité extérieure.</p>
+      
+      <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nostrum impedit suscipit molestiae ipsa quidem asperiores facere. Iste neque quo blanditiis voluptates praesentium cumque illo minima temporibus similique vitae est fugit dolores, ut quae aut facere dignissimos quibusdam nulla laudantium tenetur incidunt omnis beatae vero veritatis. Veritatis recusandae placeat sapiente.</p>
     </div>
-<img class="nyc nyc1" src="img/silhouettenyc.png" alt="">
-<img class="nyc nyc2" src="img/silhouettenyc.png" alt="">
+<!-- <img class="nyc nyc1" src="img/silhouettenyc.png" alt="">
+<img class="nyc nyc2" src="img/silhouettenyc.png" alt=""> -->
+<img class="nyc nyc1" src="img/nycgold.png" alt="">
+
+
+
   </div>
 
   <div class="explication-container chevauche">
@@ -43,7 +59,7 @@
       <p class="para">À partir des années 1930-1940, Billboard commence à publier des classements musicaux, devenant la référence mondiale. Créé en 1894 à Cincinnati par William H. Donaldson et James Hennegan, il parlait d’abord de publicité extérieure.</p>
     </div>
 
-    <h2>What's about our data ?</h2>
+    <h2>Que représente nos données ?</h2>
 
      <p class="text-carre">Nos données regroupent les informations issues des classements Billboard, permettant d’analyser les tendances musicales au fil du temps : les artistes les plus populaires, les genres dominants, et l’évolution du succès musical à travers les décennies.</p>
 
@@ -55,20 +71,49 @@
   <div class="datacontainer">
 
     <div class="banniere bannieredata">
-      <p>PRESENTATION OF OUR DATA</p>
+      <p>20 ans de Billboard</p>
     </div>
 
   </div>
-
-  <canvas id="chartCanvas" width="800" height="490"></canvas>
-
-  <div id="timelineContainer">
-
-    <div id="timeline"></div>
+<div id="timeline"></div>
+<h3 id="yearTitle" style="text-align:center; margin:8px 0;"></h3>
+  <div class="barre-content">
+    <canvas id="chartCanvas" width="800" height="490"></canvas>
+    <img src="img/podium.png" alt="">
   </div>
 
-  <script src="js/script.js">
-  </script>
+
+ <div class="banniere bannieredata">
+      <p>Quel genre est le plus présent aux USA ?</p>
+    </div>
+  <div class="card">
+   
+    <h3>Sélectionne un genre pour afficher sa courbe d'évolution.</h3>
+
+    <div class="controls">
+      <label for="genre">Genre :</label>
+      <select id="genre"></select>
+
+      <label style="display: none;" class="checkbox">
+        <input id="smooth" type="checkbox" />
+        Courbe lissée
+      </label>
+
+      <button id="showAll">Afficher tous les genres</button>
+      <div style="flex:1"></div>
+      <div class="legend"><strong id="currentCount"></strong></div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="musicChart" height="240"></canvas>
+    </div>
+
+    <div class='footer' id="footer"></div>
+  </div>
+
+
+  <script src="js/script.js"></script>
+  <script src="js/graphique.js"></script>
 
  <footer>
     <div class="footer-container">
