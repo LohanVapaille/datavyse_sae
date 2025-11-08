@@ -8,6 +8,7 @@
   --policesecondtiltle: "Inria Serif", serif;
   --colortextbg: #4b4b4b;
   --colorlight: #eeb138;
+  --colorsombre : #222;
     }
 
     .card{
@@ -21,23 +22,34 @@
       padding:20px;
       
     }
-    .card h1{ margin:0 0 8px 0; font-size:20px; }
-    .card p { margin:0 0 14px 0; color:var(--muted); font-size:13px; }
+
     .controls {
       display:flex;
       gap:12px;
       align-items:center;
+      justify-content: space-between;
       flex-wrap:wrap;
       margin-bottom:12px;
+      background-color: var(--colorsombre);
+      padding: 10px;
+      border-radius: 20px;
     }
+
     select, button {
       padding:8px 10px;
       border-radius:8px;
       border:1px solid rgba(255,255,255,0.06);
-      background-color: #0f1724;
+      background-color: var(--colorsombre);
       color: var(--colorlight);
       
       font-size:14px;
+    }
+
+    select:hover ,button:hover{
+
+      background-color: var(--colorlight);
+      color: var(--colorsombre);
+      cursor: pointer;
     }
     .legend {
       display:flex;
@@ -54,12 +66,13 @@
 
     .footer{
 
-        background-color: #222;
-  color: var(--colorlight);
-  padding: 30px 15px;
+        background-color: var(--colorsombre);
+  color: var(--maincolor);
+  padding: 10px;
   margin-top: 20px;
   border-radius: 20px;
   text-align: center;
   width: fit-content;
   margin: auto;
+  font-size: 0.8rem;
     }

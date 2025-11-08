@@ -2,8 +2,10 @@
   --maincolor: #faebcd;
   --policetitle: "Instrument Serif", serif;
   --policesecondtiltle: "Inria Serif", serif;
+  --policetext:"Instrument Sans", sans-serif;
   --colortextbg: #4b4b4b;
   --colorlight: #eeb138;
+  --colorsombre : #222;
 }
 
 *,
@@ -26,31 +28,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
+  
 }
 
-header {
-      background-color: transparent;
-      padding: 15px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-    }
-
-    nav a {
-      color: var(--colortextbg);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #000;
-    }
 
 .billboard {
   display: flex;
@@ -95,11 +75,36 @@ header {
   font-family: var(--policetitle);
   color: var(--colorlight);
   width: 100%;
-  background-color: rgb(21, 21, 21);
+  background-color:var(--colorsombre);
   text-align: center;
   font-size: 4rem;
   padding: 6px;
   z-index: 20;
+}
+
+.banniere hr{
+
+  background-color: var(--colorlight);
+  height: 2px;
+  border: none;
+  width: 20%;
+  margin: auto;
+  margin-bottom: 30px;
+  
+}
+
+.banniere h2{
+color: var(--colorlight);
+margin: auto;
+margin-top: 20px;
+}
+
+.banniere p{
+
+  font-size: 1.5rem;
+  font-family: var(--policetext);
+  color: var(--maincolor);
+
 }
 
 .banniereposition {
@@ -107,25 +112,45 @@ header {
   bottom: 20px;
 }
 
+.datacontainer{
+
+  background-color: var(--colorsombre);
+  /* height: 100vh; */
+  margin-bottom: 30px;
+}
+
+.datacontainer #info{
+
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 15px;
+}
+
+
+.titleGraphique p{
+
+  margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
+    font-family: var(--policetext);
+    color: var(--colorsombre);
+}
+
 .left a{
 
-  background-color: black;
+  background-color: var(--colorsombre);
   color: var(--colorlight);
   text-decoration: none;
-margin-right: 20px;
+  margin-right: 20px;
   padding: 10px;
   border-radius: 10px;
   transition: background-color 0.3s ease, color 0.3s ease; /* transition fluide */
  
 }
 
-
-
-
-
 .left a:hover{
 
-  color:black;
+  color:var(--colorsombre);
   background-color: white;
   
 }
@@ -148,10 +173,23 @@ h1 {
   align-items: center;
 }
 
+h2 {
+  font-family: var(--policetitle);
+  font-weight: 400;
+  color: var(--colortextbg);
+  width: 800px;
+  font-size: 4rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  
+}
+
+
 .text {
   
   color: var(--maincolor);
-  padding: 50px;
+  
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -160,15 +198,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-h2 {
-  font-family: var(--policetitle);
-  font-weight: 400;
-  color: var(--colortextbg);
-  width: 800px;
-  font-size: 4rem;
-  text-align: center;
-  
-}
 
 
 .maincolor{
@@ -184,10 +213,6 @@ h2 {
   margin-top: 10px;
   width: 70%;
   font-size: 1.5rem;
-}
-.texte1{
-
-  margin-bottom: 15px;
 }
 
 .barre-content{
@@ -206,7 +231,7 @@ h2 {
 h3{
 
   font-size: 3.5rem;
-  color: #222;
+  color: var(--maincolor);
   font-family: var(--policetitle);
 
 }
@@ -217,26 +242,24 @@ h3{
 }
 
 
+.w50{
 
-.text-carre {
-  background-color: var(--colortextbg);
-  color: var(--maincolor);
-  padding: 50px;
-  font-size: 1.2rem;
   width: 50%;
-  border-radius: 20px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
+
+.podium{
+
+  max-width: 60%;
+  /* les styles que tu voudras */
+}
+
 
 
 .ombre {
   position: absolute;
 
-  height: 350px;
-
-  color: black;
+  height: 310px;
 }
 
 .ombre1 {
@@ -274,7 +297,7 @@ margin-bottom: 70px;
 
 
 footer {
-  background-color: #222;
+  background-color: var(--colorsombre);
   color: white;
   padding: 30px 15px;
   margin-top: 20px;

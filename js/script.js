@@ -193,9 +193,9 @@ Promise.all([
                 var barWidth = (genreValue / 100) * maxWidth * progress; // largeur selon la valeur et progression
 
                 // Nom du genre (à gauche)
-                ctx.fillStyle = '#000';
+                ctx.fillStyle = '#ffffffff';
                 ctx.textAlign = 'right';
-                ctx.font = '16px Arial';
+                ctx.font = '1.2rem "Instrument Sans", sans-serif';
                 ctx.fillText(genreName, paddingLeft - 10, y + barHeight / 1.5);
 
                 // Barre: on cherche la couleur dans genreColorMap
@@ -213,7 +213,7 @@ Promise.all([
 
             // Axe horizontal (ligne et graduations)
             var axisY = paddingTop + genrePairs.length * (barHeight + barGap) - barGap / 2;
-            ctx.strokeStyle = '#000';
+            ctx.strokeStyle = '#ffffffff';
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(paddingLeft, axisY);
@@ -221,7 +221,7 @@ Promise.all([
             ctx.stroke();
 
             // Graduation tous les 10%
-            ctx.fillStyle = '#000';
+            ctx.fillStyle = '#ffffffff';
             ctx.font = '14px Arial';
             ctx.textAlign = 'center';
             for (var val = 0; val <= 100; val += 10) {
@@ -238,6 +238,47 @@ Promise.all([
         // Animation entre deux enregistrements
         var depart = currentRecord
         drawChart(depart);
+
+        // --- Met à jour le <p id="info"> avec le premier genre, sa valeur et l'année (version simple) ---
+function updateInfo(record) {
+    if (!record) return;
+
+    var topGenre = null;
+    var topValue = -Infinity;
+
+    // Trouve la valeur max (on ignore uniquement 'année')
+    for (var k in record) {
+        if (!record.hasOwnProperty(k)) continue;
+        if (k === 'année') continue;
+        var v = Number(record[k]); // supposé toujours nombre
+        if (v > topValue) {
+            topValue = v;
+            topGenre = k;
+        }
+    }
+
+    // Arrondi (entier)
+    var pourcentage = Math.round(topValue);
+
+    // Construire la phrase
+    var phrase = pourcentage + '% de ' + topGenre + ' dans le classement Billboard de l\'année ' + record.année;
+
+    // Récupère / crée <p id="info">
+    var infoEl = document.getElementById('info');
+    if (!infoEl) {
+        infoEl = document.createElement('p');
+        infoEl.id = 'info';
+        var canvasEl = document.getElementById('chartCanvas');
+        if (canvasEl && canvasEl.parentNode) canvasEl.parentNode.insertBefore(infoEl, canvasEl);
+        else document.body.appendChild(infoEl);
+    }
+
+    infoEl.innerText ="Chaque valeur ci-dessus correspond au pourcentage moyen de musique de ce genre présent dans le classement billboard sur l'année séléctionnée. Par exemple, il y avait en moyenne " + phrase;
+}
+
+// appel initial
+drawChart(depart);
+updateInfo(depart);
         
         function animateTo(arrivee) {
             var duration = 500; // durée en ms
@@ -259,6 +300,10 @@ Promise.all([
                 valeurDepart.push(Number(depart[keyName]) || 0);
                 valeurArrivee.push(Number(arrivee[keyName]) || 0);
             }
+
+             // Mettre à jour la phrase dès le clic (affiche la cible)
+    updateInfo(arrivee);
+
 
             // Annule toute animation en cours
             if (animationFrameId !== null) {

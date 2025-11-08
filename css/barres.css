@@ -6,38 +6,37 @@
   --colorlight: #eeb138;
 }
 
-canvas {
-  margin-top: 20px;
-  
-}
 
-#timelineContainer {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-}
 
 #timeline {
-  margin-top: 20px;
+  
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  color: #000000;
-  border-top: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+  color: var(--colortextbg);
+  
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+width: 95%;
+margin: auto;
+border-radius: 10px;
+padding-right: 5px;
+margin-top: 20px;
+
+
 }
 
 .yearBox {
   width: 35px;
-  height: 35px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 0.8rem;
-  background-color: var(--maincolor);
+  background-color: transparent;
   
 }
 
@@ -61,7 +60,7 @@ canvas {
 
 
 .yearBox.selected {
-  border-left: 2px solid #3498db;
-  border-right: 2px solid #3498db;
+  border-left: 2px solid var(--colorlight);
+  border-right: 2px solid var(--colorlight);
   font-weight: bold;
 }
