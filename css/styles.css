@@ -185,6 +185,79 @@ h2 {
   
 }
 
+.nombremusique{
+height: 350px;
+background-color: var(--colorsombre);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;}
+
+.nombremusique > div h2,.nombremusique > div p {
+
+  color: #ccc;
+  text-align: center;
+}
+
+.nombremusique > div a{
+
+  color: white;
+}
+
+.artistexemple{
+
+  background-color: var(--colorsombre);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ .artist{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  padding: 20px;
+  width: 60%;
+  
+
+}
+
+.artist:first-child{
+
+  margin-top: 50px;
+
+}
+
+.artist:last-child{
+
+  margin-bottom: 50px;}
+
+.artist img{
+
+width: 250px;
+
+height: 200px;
+object-fit: cover;
+border-radius: 20px;
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 .text {
   
@@ -220,13 +293,9 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+
 }
 
-.barre-content img{
-
-  width: 500px;
-}
 
 h3{
 
@@ -248,10 +317,43 @@ h3{
   margin-bottom: 20px;
 }
 
-.podium{
+.podium {
 
-  max-width: 60%;
-  /* les styles que tu voudras */
+  width: 40%;
+}
+
+.podium svg{
+
+  /* taille responsive tout en gardant le ratio 800/500 = 8/5 */
+width: 100%;
+  position: relative;
+  
+}
+
+
+
+
+/* conversion des positions pixels -> % (basé sur 800x500) */
+.gold{
+  left: 47.5%; 
+  top: 40%;     
+}
+
+.silver{
+  left: 26.75%; 
+  top: 76%;     /* (500-120)=380 -> 380/500 = 76% */
+}
+
+.bronze{
+  right: 10%;  
+  top: 70%;     
+}
+
+/* responsive text */
+.podium p{
+  margin: 0;
+  font-size: clamp(12px, 1.5vw, 20px); /* s'adapte */
+  text-align: center;
 }
 
 

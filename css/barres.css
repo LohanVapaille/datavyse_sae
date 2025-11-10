@@ -6,7 +6,10 @@
   --colorlight: #eeb138;
 }
 
+canvas{
 
+  width: 50%;
+}
 
 #timeline {
   

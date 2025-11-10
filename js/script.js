@@ -1,4 +1,4 @@
-// Fonction qui récupère un fichier et renvoie le JSON (promesse)
+document.addEventListener('DOMContentLoaded', () => {
 function fetchJson(url) {
     return fetch(url).then(function (response) {
         return response.json();
@@ -97,6 +97,10 @@ Promise.all([
 
         //on prend 1976 par défaut)
         var currentRecord = processedData[17];
+                // Mettre à jour le texte dans le SVG
+    document.getElementById('goldText').textContent = 'Rock';
+    document.getElementById('silverText').textContent = 'Soul';
+    document.getElementById('bronzeText').textContent = 'Pop';
         var animationFrameId = null;
          // Affiche l'année initiale dans le h3
     yearTitle.textContent = String(currentRecord.année);
@@ -152,6 +156,8 @@ Promise.all([
                     if (foundRecord !== null) {
                         yearTitle.textContent = String(selectedYear);
                         animateTo(foundRecord);
+                        updateMedalTexts(foundRecord);
+
                         
                     }
                 });
@@ -275,6 +281,33 @@ function updateInfo(record) {
 
     infoEl.innerText ="Chaque valeur ci-dessus correspond au pourcentage moyen de musique de ce genre présent dans le classement billboard sur l'année séléctionnée. Par exemple, il y avait en moyenne " + phrase;
 }
+function updateMedalTexts(record) {
+    if (!record) return;
+
+    // Extraire tous les genres sauf 'année' et 'Autre'
+
+    const genres = [];
+    for (const key in record) {
+        if (key !== 'année' && key !== 'Autre' && record.hasOwnProperty(key)) {
+            genres.push({ name: key, value: record[key] });
+        }
+    }
+
+    // Trier du plus grand au plus petit
+    genres.sort((a, b) => b.value - a.value);
+
+    // Récupérer les 3 premiers
+    const gold = genres[0] ? genres[0].name : '';
+    const silver = genres[1] ? genres[1].name : '';
+    const bronze = genres[2] ? genres[2].name : '';
+
+    // Mettre à jour le texte dans le SVG
+    document.getElementById('goldText').textContent = gold;
+    document.getElementById('silverText').textContent = silver;
+    document.getElementById('bronzeText').textContent = bronze;
+}
+
+
 
 // appel initial
 drawChart(depart);
@@ -465,4 +498,8 @@ canvas.addEventListener('mouseleave', function () {
 });
 
 
+
+
     });
+
+    }); 
