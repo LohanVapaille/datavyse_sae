@@ -160,7 +160,7 @@
       };
     }
 
-    // Palette simple (réutilisable)
+    // Palette simple
     const palette = [
       '#60a5fa','#f472b6','#34d399','#f59e0b','#a78bfa','#fb7185','#60a5fa','#f97316',
       '#3b82f6','#10b981','#ef4444','#06b6d4','#6366f1','#14b8a6'

@@ -28,7 +28,26 @@ border-radius: 10px;
 padding-right: 5px;
 margin-top: 20px;
 
+}
 
+
+#goldText, #silverText, #bronzeText{
+  font-family: var(--policesecondtiltle);
+}
+
+#goldText{
+
+  font-size: 3rem;
+}
+
+#silverText{
+
+  font-size: 2.5rem;
+}
+
+#bronzeText{
+
+  font-size: 2rem;
 }
 
 .yearBox {

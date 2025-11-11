@@ -136,24 +136,23 @@ margin-top: 20px;
     color: var(--colorsombre);
 }
 
-.left a{
+.left{
 
-  background-color: var(--colorsombre);
-  color: var(--colorlight);
-  text-decoration: none;
-  margin-right: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* transition fluide */
- 
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.left a:hover{
+audio {
 
-  color:var(--colorsombre);
-  background-color: white;
-  
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+  border-radius: 8px;
 }
+
+
 
 h1 {
   font-family: var(--policetitle);
@@ -162,6 +161,8 @@ h1 {
   font-size: 9rem;
   color:white;
   text-shadow: 2px 2px 4px #000;
+  margin-left: 20px;
+  text-align: center;
 }
 
 .explication-container {
@@ -184,6 +185,35 @@ h2 {
   margin-top: 40px;
   
 }
+  .svg-genre-btn { cursor: pointer;
+    margin-top: 20px;
+               }
+  .svg-genre-btn:focus { outline: none; 
+  }
+
+.infosgenres{
+
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.infosgenres div{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #222;
+  gap: 20px;
+}
+
+.infosgenres h3{
+background-color: rgba(rgb(143, 141, 141), rgb(72, 158, 72), blue, 0.9);
+  
+}
+
 
 .nombremusique{
 height: 350px;
@@ -225,6 +255,26 @@ justify-content: center;}
   
 
 }
+
+box-icon{
+
+  margin:auto;
+}
+
+.fade-in-up-on-scroll {
+  opacity: 0;
+  transform: translateY(30px); /* Décalé vers le bas au départ */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Quand l’élément devient visible */
+.fade-in-up-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 
 .artist:first-child{
 
