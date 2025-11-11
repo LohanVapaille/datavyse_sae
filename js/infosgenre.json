@@ -3,85 +3,85 @@
     "genre": "Hip Hop / RAP",
     "couleur": "#AA6C28",
     "description": "Musique née dans les années 70 à New York, caractérisée par le rap et les beats.",
-    "mp3" : "../audio/rap.mp3"
+    "mp3" : "./audio/rap.mp3"
   },
   {
     "genre": "R&B",
     "couleur": "#A88714",
     "description": "Rhythm and Blues, mélange de soul, funk et pop moderne.",
-    "mp3" : "../audio/rnb.mp3"
+    "mp3" : "./audio/rnb.mp3"
   },
   {
     "genre": "Rock",
     "couleur": "#D6A90F",
     "description": "Genre musical énergique basé sur la guitare électrique et la batterie.",
-    "mp3" : "../audio/rock.mp3"
+    "mp3" : "./audio/rock.mp3"
   },
   {
     "genre": "Soul",
     "couleur": "#3D1F01",
     "description": "Musique expressive d’origine afro-américaine, centrée sur la voix et les émotions.",
-    "mp3" : "../audio/soul.mp3"
+    "mp3" : "./audio/soul.mp3"
   },
   {
     "genre": "Country",
     "couleur": "#703B06",
     "description": "Musique folk américaine traditionnelle avec guitares acoustiques et thèmes ruraux.",
-    "mp3" : "../audio/country.mp3"
+    "mp3" : "./audio/country.mp3"
   },
   {
     "genre": "Blues",
     "couleur": "#451643",
     "description": "Musique afro-américaine avec progressions d’accords spécifiques et thèmes mélancoliques.",
-    "mp3" : "../audio/blues.mp3"
+    "mp3" : "./audio/blues.mp3"
   },
   {
     "genre": "Jazz",
     "couleur": "#401111",
     "description": "Genre musical complexe et improvisé, originaire des États-Unis.",
-    "mp3" : "../audio/jazz.mp3"
+    "mp3" : "./audio/jazz.mp3"
   },
   {
     "genre": "Pop",
     "couleur": "#C99DA3",
     "description": "Musique populaire, facile d’écoute et mélodique.",
-    "mp3" : "../audio/pop.mp3"
+    "mp3" : "./audio/pop.mp3"
   },
   {
     "genre": "Rock & Roll",
     "couleur": "#E74C3C",
     "description": "Prédécesseur du rock moderne, musique rythmée et dansante des années 50-60.",
-    "mp3" : "../audio/rocknroll.mp3"
+    "mp3" : "./audio/rocknroll.mp3"
   },
   {
     "genre": "Pop Standards",
     "couleur": "#C97512",
     "description": "Chansons populaires classiques, souvent des reprises ou ballades célèbres.",
-    "mp3" : "../audio/popstandards.mp3"
+    "mp3" : "./audio/popstandards.mp3"
   },
   {
     "genre": "Folk",
     "couleur": "#8F6F4D",
     "description": "Musique traditionnelle ou acoustique racontant des histoires ou légendes.",
-    "mp3" : "../audio/folk.mp3"
+    "mp3" : "./audio/folk.mp3"
   },
   {
     "genre": "House/Electronic",
     "couleur": "#1E083D",
     "description": "Musique électronique centrée sur le rythme et les synthétiseurs.",
-    "mp3" : "../audio/house.mp3"
+    "mp3" : "./audio/house.mp3"
   },
   {
     "genre": "Métal",
     "couleur": "#0C3D08",
     "description": "Musique rock intense et agressive, avec guitares saturées et batterie lourde.",
-    "mp3" : "../audio/metal.mp3"
+    "mp3" : "./audio/metal.mp3"
   },
   {
     "genre": "Punk",
     "couleur": "#7D3427",
     "description": "Musique brute et rapide, souvent contestataire et énergique.",
-    "mp3" : "../audio/punk.mp3"
+    "mp3" : "./audio/punk.mp3"
   },
   {
     "genre": "Autre",
