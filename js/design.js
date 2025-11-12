@@ -54,11 +54,7 @@ document.querySelectorAll('.fade-in-up-on-scroll').forEach(elem => {
 
 
 
-
-
-
-
-
+//Script on click pour le menu deroulant du footer avec un boutton pour l'afficher//
 
 
 
