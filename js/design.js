@@ -11,7 +11,7 @@ let animationLancee = false;
 function lancerCompteur() {
   if (animationLancee) return;
   animationLancee = true;
-  
+
   const timer = setInterval(() => {
     current += increment;
     if (current >= valeurFinale) {
@@ -54,8 +54,20 @@ document.querySelectorAll('.fade-in-up-on-scroll').forEach(elem => {
 
 
 
+//Script on click pour le menu deroulant du footer avec un boutton pour l'afficher//
 
 
+const btnaffiche = document.querySelector('.dropdown-toggle');
+const liste = document.querySelector('.dropdown-menu');
+
+btnaffiche.addEventListener('click', () => {
+  // On vérifie si la liste est visible ou non
+  if (liste.style.display === 'block') {
+    liste.style.display = 'none';
+  } else {
+    liste.style.display = 'block';
+  }
+});
 
 
 
