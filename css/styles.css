@@ -15,22 +15,23 @@
   margin: 0;
 }
 
+/* Body avec gradient + fond image */
 body {
+  background: radial-gradient(circle at top, #1b1b1f 0, #050507 60%, #000 100%);
+  color: #f6f1e8;
   margin: 0;
   padding: 0;
   font-family: "Instrument Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-image: url('../img/background.jpg');
+  background-image: url('../img/background.jpg'); /*ici l'image elle est d'abbord ecrasé par le fond gradient*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
-  
 }
-
 
 .billboard {
   display: flex;
@@ -45,31 +46,11 @@ body {
   background-image: url('../img/homefond.png');
   font-size: 1.6rem;
   margin-bottom: 20px;
-  
 }
-
-/* .billboard .theweeknd {
-  position: absolute;
-  bottom: 20px;
-  height: auto;
-  width: 370px;
-} */
 
 .billboard .disk {
-  
   width: 400px;
-  
 }
-
-/* .billboard .genre {
-  opacity: 23%;
-  font-size: 2.5rem;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  transform-origin: bottom right;
-  transform: rotate(270deg);
-} */
 
 .banniere {
   font-family: var(--policetitle);
@@ -83,28 +64,24 @@ body {
 }
 
 .banniere hr{
-
   background-color: var(--colorlight);
   height: 2px;
   border: none;
   width: 20%;
   margin: auto;
   margin-bottom: 30px;
-  
 }
 
 .banniere h2{
-color: var(--colorlight);
-margin: auto;
-margin-top: 20px;
+  color: var(--colorlight);
+  margin: auto;
+  margin-top: 20px;
 }
 
 .banniere p{
-
   font-size: 1.5rem;
   font-family: var(--policetext);
   color: var(--maincolor);
-
 }
 
 .banniereposition {
@@ -113,46 +90,37 @@ margin-top: 20px;
 }
 
 .datacontainer{
-
   background-color: var(--colorsombre);
-  /* height: 100vh; */
   margin-bottom: 30px;
 }
 
 .datacontainer #info{
-
   font-size: 0.8rem;
   text-align: center;
   padding: 15px;
 }
 
-
 .titleGraphique p{
-
   margin: auto;
   text-align: center;
   font-size: 1.5rem;
-    font-family: var(--policetext);
-    color: var(--colorsombre);
+  font-family: var(--policetext);
+  color: var(--colorsombre);
 }
 
 .left{
-
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
 audio {
-
   margin-top: 20px;
   width: 100%;
   max-width: 300px;
   outline: none;
   border-radius: 8px;
 }
-
-
 
 h1 {
   font-family: var(--policetitle);
@@ -166,9 +134,7 @@ h1 {
 }
 
 .explication-container {
-  
   position: relative;
-  /* Dégradé progressif du haut vers le bas */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,16 +149,17 @@ h2 {
   text-align: center;
   margin: auto;
   margin-top: 40px;
-  
 }
-  .svg-genre-btn { cursor: pointer;
-    margin-top: 20px;
-               }
-  .svg-genre-btn:focus { outline: none; 
-  }
+
+.svg-genre-btn {
+  cursor: pointer;
+  margin-top: 20px;
+}
+.svg-genre-btn:focus {
+  outline: none;
+}
 
 .infosgenres{
-
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px; 
@@ -200,7 +167,6 @@ h2 {
 }
 
 .infosgenres div{
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,109 +176,95 @@ h2 {
 }
 
 .infosgenres h3{
-background-color: rgba(rgb(143, 141, 141), rgb(72, 158, 72), blue, 0.9);
-  
+  background-color: rgba(rgb(143, 141, 141), rgb(72, 158, 72), blue, 0.9);
 }
 
-
 .nombremusique{
-height: 350px;
-background-color: var(--colorsombre);
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;}
+  height: 350px;
+  background-color: var(--colorsombre);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-.nombremusique > div h2,.nombremusique > div p {
-
+.nombremusique > div h2,
+.nombremusique > div p {
   color: #ccc;
   text-align: center;
 }
 
 .nombremusique > div a{
-
   color: white;
 }
 
-.artistexemple{
-
-  background-color: var(--colorsombre);
+/* Liste d'artistes avec cartes */
+.artistexemple {
+  background-color: transparent;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 26px;
+  align-items: stretch;
+  margin-top: 26px;
 }
 
- .artist{
-
+.artist {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-
-  padding: 20px;
-  width: 60%;
-  
-
+  gap: 22px;
+  background: rgba(8, 8, 12, 0.96);
+  border-radius: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(238, 177, 56, 0.28);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
 }
 
+.artist img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
 box-icon{
-
   margin:auto;
 }
 
 .fade-in-up-on-scroll {
   opacity: 0;
-  transform: translateY(30px); /* Décalé vers le bas au départ */
+  transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Quand l’élément devient visible */
 .fade-in-up-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-
-
-
 .artist:first-child{
-
   margin-top: 50px;
-
 }
 
 .artist:last-child{
-
-  margin-bottom: 50px;}
-
-.artist img{
-
-width: 250px;
-
-height: 200px;
-object-fit: cover;
-border-radius: 20px;
-
-
-
-
-
+  margin-bottom: 50px;
 }
 
-
-
-
-
-
-
-
-
+.artist img{
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+}
 
 .text {
-  
   color: var(--maincolor);
-  
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -321,15 +273,11 @@ border-radius: 20px;
   margin-bottom: 10px;
 }
 
-
-
 .maincolor{
   color:var(--maincolor)
 }
 
 .para{
-
-  
   color: var(--colortextbg);
   padding: 30px;
   border-radius: 10px;
@@ -339,78 +287,58 @@ border-radius: 20px;
 }
 
 .barre-content{
-
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-
 h3{
-
   font-size: 3.5rem;
   color: var(--maincolor);
   font-family: var(--policetitle);
-
 }
 
 .card h3{
-
   font-size: 2.2rem;
 }
 
-
 .w50{
-
   width: 50%;
   margin-bottom: 20px;
 }
 
 .podium {
-
   width: 40%;
 }
 
 .podium svg{
-
-  /* taille responsive tout en gardant le ratio 800/500 = 8/5 */
-width: 100%;
+  width: 100%;
   position: relative;
-  
 }
 
-
-
-
-/* conversion des positions pixels -> % (basé sur 800x500) */
 .gold{
   left: 47.5%; 
-  top: 40%;     
+  top: 40%;
 }
 
 .silver{
   left: 26.75%; 
-  top: 76%;     /* (500-120)=380 -> 380/500 = 76% */
+  top: 76%;
 }
 
 .bronze{
-  right: 10%;  
-  top: 70%;     
+  right: 10%;
+  top: 70%;
 }
 
-/* responsive text */
 .podium p{
   margin: 0;
-  font-size: clamp(12px, 1.5vw, 20px); /* s'adapte */
+  font-size: clamp(12px, 1.5vw, 20px);
   text-align: center;
 }
 
-
-
 .ombre {
   position: absolute;
-
   height: 310px;
 }
 
@@ -435,25 +363,20 @@ select {
 }
 
 .nyc{
-width: 100%;
-margin-bottom: 70px;
-
+  width: 100%;
+  margin-bottom: 70px;
 }
 
 .nyc2{
   transform: scaleX(-1) scaleY(-1);
-
 }
 
-
-
-
- /* ====== FOOTER AMÉLIORÉ ====== */
+/* ====== FOOTER AMÉLIORÉ ====== */
 footer {
   background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
   color: #f4e3b2;
   font-family: var(--policetext);
-  padding: 60px 40px 45px; /* ← légèrement augmenté ici */
+  padding: 60px 40px 45px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 -2px 15px rgba(255, 204, 0, 0.2);
@@ -493,6 +416,14 @@ footer::before {
 .footer-column {
   flex: 1 1 250px;
   min-width: 230px;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
 }
 
 .footer-column h4 {
@@ -539,11 +470,10 @@ footer::before {
   text-shadow: 0 0 10px var(--colorlight);
 }
 
-/* ↓ maintenant vers le bas */
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 115%; /* ← direction vers le bas */
+  top: 115%;
   left: 0;
   background-color: #222;
   min-width: 340px;
@@ -573,9 +503,10 @@ footer::before {
   border-bottom: none;
 }
 
-.dropdown:hover .dropdown-menu {
+/* désactivé car maintenant on gère avec JS */
+/* .dropdown:hover .dropdown-menu {
   display: block;
-}
+} */
 
 .footer-bottom {
   text-align: center;
@@ -585,3 +516,276 @@ footer::before {
   font-size: 0.9rem;
   color: #bbb;
 }
+/* ========================================================= */
+/* ================== SECTION VINYL TO VIRAL ================== */
+/* ========================================================= */
+
+.hero-vinyl {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 0% 0%, #3a291d 0, transparent 55%),
+    radial-gradient(circle at 100% 0%, #6b4a28 0, transparent 55%),
+    #0b0b0d;
+  color: #f8f5f0;
+  padding: 40px 20px;
+}
+
+.hero-vinyl-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0, transparent 40%),
+    linear-gradient(-135deg, rgba(238, 177, 56, 0.12) 0, transparent 50%),
+    url('../img/nycgold.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  mix-blend-mode: screen;
+  pointer-events: none;
+} /*ici c'est l'ia qui ma aidé a faire ca*/
+
+/* ======== DISQUE ) ======== */
+.hero-vinyl-disc-wrapper {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.hero-vinyl-disc {
+  width: 190px;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9));
+  animation: spin-vinyl 9s linear infinite;
+  transform-origin: center center;
+}
+
+/* IMPORTANT : animation corrigée */
+@keyframes spin-vinyl {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* billet */
+
+.hero-vinyl-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-vinyl-content--no-text {
+  gap: 0;
+}
+
+.hero-ticket {
+  width: 95%;
+  max-width: 920px;
+  border-radius: 16px;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(234, 181, 90, 0.5);
+  transform: translateY(10px);
+}
+
+.hero-ticket--large {
+  transform: translateY(18px);
+}
+
+/* Flèche CTA */
+
+.hero-cta-circle {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 245, 240, 0.85);
+  background: radial-gradient(circle at 30% 0%, rgba(238, 177, 56, 0.35), transparent 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.8),
+    0 18px 40px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(238, 177, 56, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-cta-circle:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 1),
+    0 0 20px rgba(238, 177, 56, 0.7);
+  border-color: rgba(248, 245, 240, 1);
+}
+
+.hero-cta-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #f8f5f0;
+}
+
+@media (max-width: 820px) {
+  .hero-vinyl {
+    padding-top: 70px;
+  }
+
+  .hero-vinyl-disc {
+    width: 140px;
+  }
+
+  .hero-ticket {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .hero-cta-circle {
+    bottom: 18px;
+  }
+}
+/* ================== OVERRIDES STYLÉS ================== */
+
+
+/* Cartes d'explication */
+.explication-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 40px 32px;
+  background: radial-gradient(circle at top left, rgba(238, 177, 56, 0.12) 0, transparent 55%), rgba(12, 12, 16, 0.92);
+  border-radius: 22px;
+  border: 1px solid rgba(238, 177, 56, 0.35);
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.explication-container::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(238, 177, 56, 0.8));
+}
+
+.explication-container:first-of-type::before {
+  display: none;
+}
+
+.explication-container h2 {
+  font-family: var(--policetitle);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #f7e3b8;
+  width: 100%;
+}
+
+.explication-container .para {
+  font-size: 1.20rem;
+  line-height: 1.7;
+  color: #f1e8dd;
+}
+
+/* Bloc compteur de musiques */
+.nombremusique {
+  max-width: 900px;
+  margin: 40px auto 20px;
+  padding: 26px 30px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(238, 177, 56, 0.18), rgba(12, 12, 16, 0.95));
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nombremusique h2 {
+  font-family: var(--policetitle);
+  font-size: 2.2rem;
+  letter-spacing: 0.25em;
+  text-align: center;
+  color: #f9e7c0;
+}
+
+.nombremusique p {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #f1e8dd;
+}
+
+/* Container data (graph + podium) */
+.datacontainer {
+  max-width: 1200px;
+  margin: 70px auto 90px;
+  padding: 32px 30px 40px;
+  border-radius: 22px;
+  background: radial-gradient(circle at top, rgba(234, 181, 90, 0.18) 0, rgba(10, 10, 14, 0.98) 55%);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.datacontainer::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.04) 0, transparent 55%);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Bannière spécifique dans le bloc data  pour que le fond sois transparent*/
+.bannieredata {
+  background: transparent;
+  box-shadow: none;
+
+}
+
+.bannieredata h2 {
+  font-family: var(--policetitle);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 2.05rem;
+  color: #f7e3b8;
+}
+
+.bannieredata p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #f1e8dd;
+}
+
+

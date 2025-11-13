@@ -56,5 +56,32 @@ document.querySelectorAll('.fade-in-up-on-scroll').forEach(elem => {
 
 //Script on click pour le menu deroulant du footer avec un boutton pour l'afficher//
 
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".dropdown-toggle");
+    const menu = document.querySelector(".dropdown-menu");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("show");
+    });
+
+    // Ferme si on clique ailleurs
+    document.addEventListener("click", () => {
+        menu.classList.remove("show");
+    });
+});
 
 
+
+
+// ===== HERO VINYL TO VIRAL : scroll CTA ===== //
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("heroScrollBtn");
+  const firstSection = document.querySelector(".explication-container");
+
+  if (scrollBtn && firstSection) {
+    scrollBtn.addEventListener("click", () => {
+      firstSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
