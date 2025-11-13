@@ -1,7 +1,7 @@
-    // URL du fichier de données (relatif)
+  
     const DATA_URL = 'js/data.json';
 
-    // Sélecteurs
+ 
     const selGenre = document.getElementById('genre');
     const smoothCheckbox = document.getElementById('smooth');
     const showAllBtn = document.getElementById('showAll');
@@ -29,11 +29,11 @@
     function init(data){
       rawData = data.slice();
 
-      // Normaliser : forcer les années en int, trier par année croissante
+    
       rawData.forEach(d => d.année = parseInt(d['année'], 10));
       rawData.sort((a,b) => a.année - b.année);
 
-      // Construire la liste d'années (labels)
+      // Construire la liste d'années 
       years = rawData.map(r => r.année);
 
       // Extraire les genres disponibles (clés sauf "année")
@@ -111,10 +111,10 @@
         }
       });
 
-      // Événements UI
+     
       selGenre.addEventListener('change', () => updateSingleGenre(selGenre.value));
       smoothCheckbox.addEventListener('change', () => {
-        // met à jour la tension de la courbe
+        // met à jour la "tension" de la courbee
         chart.data.datasets.forEach(ds => ds.tension = smoothCheckbox.checked ? 0.4 : 0.0);
         chart.update();
       });
@@ -196,5 +196,5 @@
         return buildDatasetForGenre(g, color, false);
       });
       chart.update();
-      currentCount.textContent = `Tous les genres (${genres.length}) affichés — bascule le bouton pour revenir`;
+      currentCount.textContent = `Tous les genres (${genres.length}) affichés — click sur le bouton pour revenir`;
     }
