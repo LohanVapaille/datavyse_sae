@@ -72,8 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
 // ===== HERO VINYL TO VIRAL : scroll CTA ===== //
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBtn = document.getElementById("heroScrollBtn");

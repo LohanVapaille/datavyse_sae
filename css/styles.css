@@ -1,3 +1,7 @@
+/* ========================================================= */
+/* =============== VARIABLES GLOBALES & RESET =============== */
+/* ========================================================= */
+
 :root {
   --maincolor: #faebcd;
   --policetitle: "Instrument Serif", serif;
@@ -15,7 +19,11 @@
   margin: 0;
 }
 
-/* Body avec gradient + fond image */
+/* ========================================================= */
+/* ========================= GLOBAL ========================= */
+/* ========================================================= */
+
+/* Body : gradient + texture BG */
 body {
   background: radial-gradient(circle at top, #1b1b1f 0, #050507 60%, #000 100%);
   color: #f6f1e8;
@@ -25,13 +33,17 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-image: url('../img/background.jpg'); /*ici l'image elle est d'abbord ecrasé par le fond gradient*/
+  background-image: url('../img/background.jpg'); /* L’image est recouverte par le gradient */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
 }
+
+/* ========================================================= */
+/* ======================= BILLBOARD ======================== */
+/* ========================================================= */
 
 .billboard {
   display: flex;
@@ -51,6 +63,10 @@ body {
 .billboard .disk {
   width: 400px;
 }
+
+/* ========================================================= */
+/* ======================== BANNIÈRE ======================== */
+/* ========================================================= */
 
 .banniere {
   font-family: var(--policetitle);
@@ -89,6 +105,10 @@ body {
   bottom: 20px;
 }
 
+/* ========================================================= */
+/* ===================== DATA CONTAINER ===================== */
+/* ========================================================= */
+
 .datacontainer{
   background-color: var(--colorsombre);
   margin-bottom: 30px;
@@ -108,6 +128,10 @@ body {
   color: var(--colorsombre);
 }
 
+/* ========================================================= */
+/* ========================== AUDIO ========================== */
+/* ========================================================= */
+
 .left{
   display: flex;
   flex-direction: column;
@@ -122,6 +146,10 @@ audio {
   border-radius: 8px;
 }
 
+/* ========================================================= */
+/* ========================== TITRES ======================== */
+/* ========================================================= */
+
 h1 {
   font-family: var(--policetitle);
   font-weight: 400;
@@ -131,13 +159,6 @@ h1 {
   text-shadow: 2px 2px 4px #000;
   margin-left: 20px;
   text-align: center;
-}
-
-.explication-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 h2 {
@@ -151,6 +172,21 @@ h2 {
   margin-top: 40px;
 }
 
+/* ========================================================= */
+/* ===================== CARTES EXPLICATION ================= */
+/* ========================================================= */
+
+.explication-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========================================================= */
+/* ========================= GENRES ========================= */
+/* ========================================================= */
+
 .svg-genre-btn {
   cursor: pointer;
   margin-top: 20px;
@@ -159,25 +195,45 @@ h2 {
   outline: none;
 }
 
-.infosgenres{
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
-  padding: 20px;
+.infosgenres {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  padding: 28px 20px;
 }
 
-.infosgenres div{
+.infosgenres div {
+  background:
+    radial-gradient(circle at top left, rgba(238, 177, 56, 0.12) 0%, transparent 55%),
+    rgba(8, 8, 12, 0.92);
+  padding: 18px 16px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  background-color: #222;
-  gap: 20px;
+  gap: 16px;
+  border: 1px solid rgba(238, 177, 56, 0.25);
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(2px);
 }
 
-.infosgenres h3{
-  background-color: rgba(rgb(143, 141, 141), rgb(72, 158, 72), blue, 0.9);
+.infosgenres h3 {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 1.3rem;
+  font-family: var(--policetitle);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--maincolor);
+  border-bottom: 1px solid rgba(238, 177, 56, 0.4);
 }
+
+
+/* ========================================================= */
+/* ===================== BLOC NOMBRE MUSIQUE ================ */
+/* ========================================================= */
 
 .nombremusique{
   height: 350px;
@@ -198,7 +254,10 @@ h2 {
   color: white;
 }
 
-/* Liste d'artistes avec cartes */
+/* ========================================================= */
+/* =================== LISTE D'ARTISTES ====================== */
+/* ========================================================= */
+
 .artistexemple {
   background-color: transparent;
   width: 100%;
@@ -209,6 +268,7 @@ h2 {
   margin-top: 26px;
 }
 
+/* Carte artiste */
 .artist {
   display: flex;
   gap: 22px;
@@ -224,6 +284,7 @@ h2 {
   margin-inline: auto;
 }
 
+/* Image artiste (petite) */
 .artist img {
   width: 140px;
   height: 140px;
@@ -233,10 +294,12 @@ h2 {
     0 10px 25px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+
 box-icon{
   margin:auto;
 }
 
+/* Animation d’apparition */
 .fade-in-up-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -248,6 +311,7 @@ box-icon{
   transform: translateY(0);
 }
 
+/* Marges spécifiques aux cartes */
 .artist:first-child{
   margin-top: 50px;
 }
@@ -256,6 +320,7 @@ box-icon{
   margin-bottom: 50px;
 }
 
+/* Image artiste (grande) — réécrase la première */
 .artist img{
   width: 250px;
   height: 200px;
@@ -263,6 +328,7 @@ box-icon{
   border-radius: 20px;
 }
 
+/* Texte sous les artistes */
 .text {
   color: var(--maincolor);
   margin-top: 20px;
@@ -277,6 +343,7 @@ box-icon{
   color:var(--maincolor)
 }
 
+/* Paragraphes explicatifs */
 .para{
   color: var(--colortextbg);
   padding: 30px;
@@ -286,12 +353,14 @@ box-icon{
   font-size: 1.5rem;
 }
 
+/* Conteneur barre (graphique/timeline) */
 .barre-content{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Titres généraux */
 h3{
   font-size: 3.5rem;
   color: var(--maincolor);
@@ -302,10 +371,15 @@ h3{
   font-size: 2.2rem;
 }
 
+/* Largeur utilitaire */
 .w50{
   width: 50%;
   margin-bottom: 20px;
 }
+
+/* ========================================================= */
+/* ========================= PODIUM ========================= */
+/* ========================================================= */
 
 .podium {
   width: 40%;
@@ -316,6 +390,7 @@ h3{
   position: relative;
 }
 
+/* Positions des médailles */
 .gold{
   left: 47.5%; 
   top: 40%;
@@ -337,6 +412,7 @@ h3{
   text-align: center;
 }
 
+/* Ombres décoratives */
 .ombre {
   position: absolute;
   height: 310px;
@@ -353,6 +429,10 @@ h3{
   right: 0;
 }
 
+/* ========================================================= */
+/* =================== FORM SELECT & NYC IMG ================ */
+/* ========================================================= */
+
 label {
   font-weight: bold;
 }
@@ -362,6 +442,7 @@ select {
   padding: 5px;
 }
 
+/* Images New York */
 .nyc{
   width: 100%;
   margin-bottom: 70px;
@@ -371,7 +452,10 @@ select {
   transform: scaleX(-1) scaleY(-1);
 }
 
-/* ====== FOOTER AMÉLIORÉ ====== */
+/* ========================================================= */
+/* ======================= FOOTER AMÉLIORÉ ================== */
+/* ========================================================= */
+
 footer {
   background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
   color: #f4e3b2;
@@ -382,6 +466,7 @@ footer {
   box-shadow: 0 -2px 15px rgba(255, 204, 0, 0.2);
 }
 
+/* Glow animation behind footer */
 footer::before {
   content: "";
   position: absolute;
@@ -398,6 +483,7 @@ footer::before {
   to { transform: translateX(10%) rotate(5deg); }
 }
 
+/* Container principal du footer */
 .footer-container {
   max-width: 1200px;
   margin: auto;
@@ -413,11 +499,13 @@ footer::before {
   margin-bottom: 250px;
 }
 
+/* Colonne du footer */
 .footer-column {
   flex: 1 1 250px;
   min-width: 230px;
 }
 
+/* Dropdown (JS-controlled) */
 .dropdown-menu {
   display: none;
 }
@@ -426,6 +514,7 @@ footer::before {
   display: block;
 }
 
+/* Titres du footer */
 .footer-column h4 {
   font-family: var(--policetitle);
   color: var(--colorlight);
@@ -451,7 +540,10 @@ footer::before {
   margin-bottom: 8px;
 }
 
-/* ===== MENU DÉROULANT (vers le bas) ===== */
+/* ========================================================= */
+/* =================== MENU DÉROULANT FOOTER ================ */
+/* ========================================================= */
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -470,6 +562,7 @@ footer::before {
   text-shadow: 0 0 10px var(--colorlight);
 }
 
+/* Contenu du dropdown */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -503,11 +596,7 @@ footer::before {
   border-bottom: none;
 }
 
-/* désactivé car maintenant on gère avec JS */
-/* .dropdown:hover .dropdown-menu {
-  display: block;
-} */
-
+/* Bas du footer */
 .footer-bottom {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -516,9 +605,11 @@ footer::before {
   font-size: 0.9rem;
   color: #bbb;
 }
+
 /* ========================================================= */
-/* ================== SECTION VINYL TO VIRAL ================== */
+/* =================== SECTION VINYL TO VIRAL =============== */
 /* ========================================================= */
+/* — À partir d’ici : ton bloc spécial "ZGA" intact — */
 
 .hero-vinyl {
   position: relative;
@@ -548,31 +639,43 @@ footer::before {
   opacity: 0.22;
   mix-blend-mode: screen;
   pointer-events: none;
-} /*ici c'est l'ia qui ma aidé a faire ca*/
+}
 
-/* ======== DISQUE ) ======== */
+/* ========================================================= */
+/* ======================== DISQUE ========================== */
+/* JARRIVE PAS LE RESPONSIVE A L'AIDE LOHANNN */
+
 .hero-vinyl-disc-wrapper {
   position: absolute;
-  top: 15%;
+  top: 15%; 
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .hero-vinyl-disc {
-  width: 190px;
+  width: 22vw;
+  max-width: 190px;
+  min-width: 110px;
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9));
   animation: spin-vinyl 9s linear infinite;
   transform-origin: center center;
 }
 
-/* IMPORTANT : animation corrigée */
+@media (max-width: 480px) {
+  .hero-vinyl-disc-wrapper {
+    top: 32%; 
+  }
+}
+
 @keyframes spin-vinyl {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-/* billet */
+/* ========================================================= */
+/* ===================== BILLET / CONTENU =================== */
+/* ========================================================= */
 
 .hero-vinyl-content {
   position: relative;
@@ -603,8 +706,7 @@ footer::before {
   transform: translateY(18px);
 }
 
-/* Flèche CTA */
-
+/* CTA flèche */
 .hero-cta-circle {
   position: absolute;
   bottom: 26px;
@@ -641,6 +743,7 @@ footer::before {
   color: #f8f5f0;
 }
 
+/* Adaptation tablette */
 @media (max-width: 820px) {
   .hero-vinyl {
     padding-top: 70px;
@@ -660,10 +763,10 @@ footer::before {
     bottom: 18px;
   }
 }
-/* ================== OVERRIDES STYLÉS ================== */
+/* ========================================================= */
+/* ================== CARTES D’EXPLICATION ================= */
+/* ========================================================= */
 
-
-/* Cartes d'explication */
 .explication-container {
   position: relative;
   max-width: 1100px;
@@ -681,6 +784,7 @@ footer::before {
   align-items: center;
 }
 
+/* Petit trait vertical décoratif */
 .explication-container::before {
   content: "";
   position: absolute;
@@ -692,6 +796,7 @@ footer::before {
   background: linear-gradient(to bottom, transparent, rgba(238, 177, 56, 0.8));
 }
 
+/* Le premier bloc n'a pas le trait */
 .explication-container:first-of-type::before {
   display: none;
 }
@@ -706,13 +811,17 @@ footer::before {
   width: 100%;
 }
 
+/* Texte interne des cartes */
 .explication-container .para {
   font-size: 1.20rem;
   line-height: 1.7;
   color: #f1e8dd;
 }
 
-/* Bloc compteur de musiques */
+/* ========================================================= */
+/* =============== BLOC COMPTEUR DE MUSIQUES =============== */
+/* ========================================================= */
+
 .nombremusique {
   max-width: 900px;
   margin: 40px auto 20px;
@@ -743,7 +852,10 @@ footer::before {
   color: #f1e8dd;
 }
 
-/* Container data (graph + podium) */
+/* ========================================================= */
+/* ============ BLOC DATA (GRAPHIQUE + PODIUM) ============= */
+/* ========================================================= */
+
 .datacontainer {
   max-width: 1200px;
   margin: 70px auto 90px;
@@ -757,6 +869,7 @@ footer::before {
   overflow: hidden;
 }
 
+/* Effet décoratif lumineux dans le fond */
 .datacontainer::before {
   content: "";
   position: absolute;
@@ -767,11 +880,13 @@ footer::before {
   pointer-events: none;
 }
 
-/* Bannière spécifique dans le bloc data  pour que le fond sois transparent*/
+/* ========================================================= */
+/* =========== BANNIÈRE SPÉCIFIQUE POUR LE DATA ============ */
+/* ========================================================= */
+
 .bannieredata {
   background: transparent;
   box-shadow: none;
-
 }
 
 .bannieredata h2 {
@@ -779,7 +894,7 @@ footer::before {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-size: 2.05rem;
-  color: #f7e3b8;
+  color: #000000;
 }
 
 .bannieredata p {
@@ -787,5 +902,3 @@ footer::before {
   font-size: 0.9rem;
   color: #f1e8dd;
 }
-
-
