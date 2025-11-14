@@ -83,3 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//Script on click pour le menu deroulant du footer avec un boutton pour l'afficher//
+
+
+const btnaffiche = document.querySelector('.dropdown-toggle');
+const liste = document.querySelector('.dropdown-menu');
+
+btnaffiche.addEventListener('click', () => {
+  // On vérifie si la liste est visible ou non
+  if (liste.style.display === 'block') {
+    liste.style.display = 'none';
+  } else {
+    liste.style.display = 'block';
+  }
+});
+
