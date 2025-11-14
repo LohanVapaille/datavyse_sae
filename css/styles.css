@@ -869,6 +869,7 @@ footer a{
   box-shadow: none;
 }
 
+
 .bannieredata h2 {
   font-family: var(--policetitle);
   letter-spacing: 0.25em;
@@ -880,5 +881,11 @@ footer a{
 .bannieredata p {
   margin-top: 8px;
   font-size: 0.9rem;
-  color: #f1e8dd;
+  color: #000000;
 }
+
+.bannieredata .beige{
+
+  color: var(--maincolor);
+}
+
