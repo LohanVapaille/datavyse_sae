@@ -25,7 +25,7 @@ fetch('js/infosgenre.json')
         audio.preload = 'metadata';
 
         const btn = document.createElement('button');
-        btn.textContent = '▶️ Play';
+        btn.textContent = '▷ ';
         btn.style.cursor = 'pointer';
 
         btn.addEventListener('click', () => {
@@ -33,19 +33,19 @@ fetch('js/infosgenre.json')
             if (a !== audio) {
               a.pause();
               const otherBtn = a.nextSibling;
-              if (otherBtn && otherBtn.tagName === 'BUTTON') otherBtn.textContent = '▶️ Play';
+              if (otherBtn && otherBtn.tagName === 'BUTTON') otherBtn.textContent = '▷';
             }
           });
 
           if (audio.paused) {
             audio.play();
-            btn.textContent = '⏸️ Pause';
+            btn.textContent = '⏸';
           } else {
             audio.pause();
-            btn.textContent = '▶️ Play';
+            btn.textContent = '▷';
           }
 
-          audio.onended = () => { btn.textContent = '▶️ Play'; };
+          audio.onended = () => { btn.textContent = '▷'; };
         });
 
         card.appendChild(audio);

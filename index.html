@@ -2,8 +2,10 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <title>DataVyse</title>
+  
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vinyl To Viral</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/barres.css">
   <link rel="stylesheet" href="css/graphique.css">
@@ -12,6 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -25,14 +28,9 @@
 
 
   <section class="hero-vinyl">
-    <div class="hero-vinyl-bg">
-      
-    </div>
 
-
-
-    <div class="hero-vinyl-content hero-vinyl-content--no-text">
-      <img src="img/billet.jpg" alt="Billet Vinyl To Viral" class="hero-ticket hero-ticket--large">
+    <div class="hero-vinyl-content">
+      <img src="img/billet.png" alt="Billet Vinyl To Viral" class="hero-ticket hero-ticket--large">
           <div class="hero-vinyl-disc-wrapper">
       <img src="img/disk2.png" alt="Disque vinyle" class="hero-vinyl-disc">
     </div>
@@ -45,14 +43,15 @@
 
 
   <div class="explication-container ">
-    <h2>LA NAISSANCE DU BILLBOARD USA</h2>
+    <h2>La naissannce du Billboard</h2>
     <div class="text texte1 ">
 
-      <p class="para">Le Billboard est né dans les années 1950, à une époque où l’industrie musicale se développait
+      <p class="para">Le Billboard est né dans les années 1950, aux États-Unis, à une époque où l’industrie musicale se développait
         rapidement et où il n’existait pas de classement unique pour mesurer la popularité des chansons. En 1958,
-        Billboard, qui était un magazine, a lancé le Hot 100, un classement combinant les ventes de disques et la
+        Billboard, qui était un magazine, a lancé le Hot 100, un classement combinant lesca ventes de disques et la
         diffusion à la radio, afin de refléter les tendances musicales aux États-Unis. Ce classement permettait aux
         artistes et aux maisons de disques de savoir quelles chansons rencontraient le plus de succès auprès du public.
+        
       </p>
     </div>
   </div>
@@ -67,7 +66,7 @@
   </div>
 
   <div class="explication-container">
-    <h2>L'INFLUENCE DU BILLBOARD US SUR L'INDUSTRIE MUSICALE </h2>
+    <h2>L'influence du Billboard sur l'industrie musicale </h2>
     <div class="text">
       <p class="para">Le Billboard Hot 100 a profondément transformé l’industrie musicale américaine en devenant la
         référence incontournable pour mesurer la popularité des chansons. Les artistes et les maisons de disques
@@ -131,7 +130,7 @@
 
     </div>
 
-    <h2>MAINTENANT, C'EST A VOUS</h2>
+    <h2>Maintenant, c'est à vous !</h2>
 
     <p class="para ">Nos données regroupent les informations issues des classements Billboard, permettant d’analyser
       les tendances musicales au fil du temps. <strong>Intéragissez avec les données pour en apprendre plus sur
@@ -146,7 +145,7 @@
 
     <div class="banniere bannieredata">
 
-      <h2>66 ans de Billboard</h2>
+      <h2 class="black">66 ans de Billboard</h2>
       <hr>
       <p class="beige">Séléctionnez une année sur la frise, les genres les plus populaires de cette année là apparaitrons</p>
     </div>
@@ -156,7 +155,7 @@
     <div id="timeline" class=" "></div>
     <h3 class='fade-in-up-on-scroll' id="yearTitle" style="text-align:center; margin:8px 0;"></h3>
     <div class="barre-content">
-      <canvas id="chartCanvas" width="800" height="490"></canvas>
+      <canvas id="chartCanvas" width="650" height="500"></canvas>
 
 
       <div class="podium">
@@ -558,9 +557,9 @@
 
       <div class="banniere bannieredata">
 
-      <h2 class="titre3">PARCOURIR LES GENRES</h2>
+      <h2 class="titre3">Parcourir les genres</h2>
       <hr>
-      <p style="margin-bottom: 10px;">Découvrez en détails tous le sgenres qui ont fait leur apparrition dans le classement officiel du Billboard</p>
+      <p style="margin-bottom: 10px;">Découvrez en détails tous les genres qui ont fait leur apparrition dans le classement officiel du Billboard</p>
     </div>
     <div id="genreGrid" class="infosgenres">
   

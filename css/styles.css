@@ -144,7 +144,7 @@ h2 {
   font-family: var(--policetitle);
   font-weight: 400;
   color: var(--colortextbg);
-  width: 800px;
+  max-width: 800px;
   font-size: 4.3rem;
   text-align: center;
   margin: auto;
@@ -155,12 +155,7 @@ h2 {
 /* ===================== CARTES EXPLICATION ================= */
 /* ========================================================= */
 
-.explication-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 /* ========================================================= */
 /* ========================= GENRES ========================= */
@@ -180,6 +175,9 @@ h2 {
   gap: 26px;
   padding: 28px 20px;
 }
+
+
+
 
 .infosgenres div {
   background:
@@ -208,6 +206,7 @@ h2 {
   color: var(--maincolor);
   border-bottom: 1px solid rgba(238, 177, 56, 0.4);
 }
+
 
 
 /* ========================================================= */
@@ -361,7 +360,7 @@ h3{
 /* ========================================================= */
 
 .podium {
-  width: 40%;
+  width: 100%;
 }
 
 .podium svg{
@@ -607,23 +606,11 @@ footer a{
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: #f8f5f0;
-  padding: 40px 20px;
+  
+  
 }
 
-.hero-vinyl-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0, transparent 40%),
-    linear-gradient(-135deg, rgba(238, 177, 56, 0.12) 0, transparent 50%),
-    url('../img/nycgold.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.22;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
+
 
 /* ========================================================= */
 /* ======================== DISQUE ========================== */
@@ -672,16 +659,14 @@ footer a{
   gap: 18px;
 }
 
-.hero-vinyl-content--no-text {
-  gap: 0;
-}
+
 
 .hero-ticket {
   width: 95%;
   max-width: 920px;
   border-radius: 16px;
   box-shadow:
-    0 32px 80px rgba(0, 0, 0, 0.95),
+    0 32px 70px rgba(0, 0, 0, 0.95),
     0 0 35px rgba(234, 181, 90, 0.5);
   transform: translateY(10px);
 }
@@ -761,6 +746,8 @@ footer a{
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  
 }
 
 /* Petit trait vertical décoratif */
@@ -782,9 +769,8 @@ footer a{
 
 .explication-container h2 {
   font-family: var(--policetitle);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 2.3rem;
+
+  font-size: 4.3rem;
   margin-bottom: 18px;
   color: #f7e3b8;
   width: 100%;
@@ -793,7 +779,7 @@ footer a{
 /* Texte interne des cartes */
 .explication-container .para {
   font-size: 1.20rem;
-  line-height: 1.7;
+  line-height: 1.5;
   color: #f1e8dd;
 }
 
@@ -802,7 +788,7 @@ footer a{
 /* ========================================================= */
 
 .nombremusique {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 40px auto 20px;
   padding: 26px 30px;
   border-radius: 18px;
@@ -837,11 +823,11 @@ footer a{
 /* ========================================================= */
 
 .datacontainer {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 70px auto 90px;
   padding: 32px 30px 40px;
   border-radius: 22px;
-  background: radial-gradient(circle at top, rgba(234, 181, 90, 0.18) 0, rgba(10, 10, 14, 0.98) 55%);
+  background: radial-gradient(circle at top, rgba(234, 181, 90, 0.18) 0, rgba(10, 10, 14, 0.98) 40%);
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.95),
     0 0 0 1px rgba(255, 255, 255, 0.03);
@@ -870,17 +856,17 @@ footer a{
 }
 
 
+
+
 .bannieredata h2 {
   font-family: var(--policetitle);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  font-size: 2.35rem;
-  color: #000000;
+  font-size: 4.3rem;
+  color: var(--colortextbg)
 }
 
 .bannieredata p {
   margin-top: 8px;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: #000000;
 }
 
@@ -889,3 +875,39 @@ footer a{
   color: var(--maincolor);
 }
 
+.banniere .black{
+
+  color: #000;
+  text-shadow: var(--maincolor) 2px 2px 15px;
+}
+
+
+@media (max-width: 769px) {
+  .infosgenres {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .barre-content {
+    flex-direction: column;
+  }
+
+  canva{
+
+    width: 100% !important;
+  }
+
+  
+}
+
+
+@media (max-width: 550px) {
+  .infosgenres {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .barre-content {
+    flex-direction: column;
+  }
+
+  
+}
