@@ -11,7 +11,7 @@ let animationLancee = false;
 function lancerCompteur() {
   if (animationLancee) return;
   animationLancee = true;
-
+  
   const timer = setInterval(() => {
     current += increment;
     if (current >= valeurFinale) {
@@ -56,21 +56,30 @@ document.querySelectorAll('.fade-in-up-on-scroll').forEach(elem => {
 
 //Script on click pour le menu deroulant du footer avec un boutton pour l'afficher//
 
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".dropdown-toggle");
+    const menu = document.querySelector(".dropdown-menu");
 
-const btnaffiche = document.querySelector('.dropdown-toggle');
-const liste = document.querySelector('.dropdown-menu');
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("show");
+    });
 
-btnaffiche.addEventListener('click', () => {
-  // On vérifie si la liste est visible ou non
-  if (liste.style.display === 'block') {
-    liste.style.display = 'none';
-  } else {
-    liste.style.display = 'block';
-  }
+    // Ferme si on clique ailleurs
+    document.addEventListener("click", () => {
+        menu.classList.remove("show");
+    });
 });
 
 
+// ===== HERO VINYL TO VIRAL : scroll CTA ===== //
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollBtn = document.getElementById("heroScrollBtn");
+  const firstSection = document.querySelector(".explication-container");
 
-
-
-
+  if (scrollBtn && firstSection) {
+    scrollBtn.addEventListener("click", () => {
+      firstSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});

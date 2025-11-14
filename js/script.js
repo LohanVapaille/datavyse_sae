@@ -409,6 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tooltip.style.color = '#111';
             document.body.appendChild(tooltip);
 
+            // Helper pour cacher/montrer
             function showTooltip(html, clientX, clientY) {
                 tooltip.innerHTML = html;
                 tooltip.style.display = 'block';

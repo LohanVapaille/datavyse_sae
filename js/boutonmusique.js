@@ -1,3 +1,7 @@
+/**
+ * charge le JSON puis initialise les boutons SVG
+ * Assure-toi que /data/infosGenre.json est servi par ton serveur (sinon adapte le chemin)
+ */
 fetch('js/infosgenre.json')
   .then(res => {
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -7,7 +11,7 @@ fetch('js/infosgenre.json')
 
     (function (infosGenre) {
       const svg = document.querySelector('svg');
-    
+      if (!svg) return console.warn('SVG non trouvé — vérifie l\'emplacement du script.');
 
       // vérifie / crée l'élément audio s'il n'existe pas
       let audio = document.getElementById('genreAudio');
@@ -18,7 +22,7 @@ fetch('js/infosgenre.json')
         document.body.appendChild(audio);
       }
 
-      // configuration (taille et décalage du bouton) 
+      // configuration (taille et décalage du bouton) — ajuste ici
       const cfg = { r: 25, dy: 42, fill: '#f3f1e8', stroke: '#c9b37a', extraDy: { goldText: 25 } };
 
       const textIds = ['goldText', 'silverText', 'bronzeText'];
@@ -218,7 +222,7 @@ if (timeline) {
         entry.btnObj.group.setAttribute('aria-label', info ? `Lire ${genreName}` : `Aucun son`);
       };
 
-    })(infosGenre); 
+    })(infosGenre); // fin IIFE qui reçoit les données
 
   })
   .catch(err => {
