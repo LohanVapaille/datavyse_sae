@@ -43,6 +43,7 @@ body {
 
 
 
+
 /* ========================================================= */
 /* ======================== BANNIÈRE ======================== */
 /* ========================================================= */
@@ -633,11 +634,7 @@ footer a{
   transform-origin: center center;
 }
 
-@media (max-width: 480px) {
-  .hero-vinyl-disc-wrapper {
-    top: 32%; 
-  }
-}
+
 
 @keyframes spin-vinyl {
   from { transform: rotate(0deg); }
@@ -650,7 +647,7 @@ footer a{
 
 .hero-vinyl-content {
   position: relative;
-  z-index: 4;
+  
   text-align: center;
   max-width: 960px;
   display: flex;
@@ -709,22 +706,25 @@ footer a{
 
 /* Adaptation tablette */
 @media (max-width: 820px) {
-  .hero-vinyl {
-    padding-top: 70px;
-  }
 
-  .hero-vinyl-disc {
-    width: 140px;
-  }
+
 
   .hero-ticket {
     width: 100%;
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
+     box-shadow: none;
+     margin: 0;
   }
 
+
+}
+
+/* Adaptation tablette */
+@media (max-width: 774px) {
+
   .hero-cta-circle {
-    bottom: 18px;
+    display: none;
   }
 }
 /* ========================================================= */
@@ -909,5 +909,131 @@ footer a{
     flex-direction: column;
   }
 
+}
+
+
+@media (max-width: 650px) {
+
+
+  .artist{
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist .right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+
+
   
 }
+
+@media (max-width: 780px) {
+  body{
+
+    background-image: none;
+    background-color: var(--maincolor);
+  }
+
+  .hero-vinyl-disc-wrapper{
+    display: none;
+  }
+
+  .hero-vinyl{
+
+    min-height: auto;
+    padding: 0px;
+
+  }
+
+  .controls{
+
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+  }
+
+  h2{
+
+    font-size: 2rem;
+    margin: 5px;
+    margin-top: 25px;
+  }
+
+  .titleGraphique p{
+
+    font-size: 1rem;
+  }
+
+ 
+
+  .explication-container {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
+
+  .explication-container h2 {
+  font-family: var(--policetitle);
+ margin: 6px;
+  font-size: 2.3rem;
+  
+  color: #f7e3b8;
+  width: 100%;
+}
+
+  .explication-container .para {
+ margin: 6px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  padding: 0px;
+  width: 100%;
+}
+.nombremusique{
+
+  margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+
+.datacontainer{
+
+  margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    padding: 0;
+    box-shadow: none;
+    background-color: #000;
+}
+
+.bannieredata .titre3{
+
+  font-size: 2.3rem;
+}
+
+.bannieredata .black{
+
+  font-size: 2.3rem;
+  color: var(--colorlight);
+}
+
+.bannieredata p{
+
+  font-size: 1rem;
+}
+
+}
+
+
+
+
+

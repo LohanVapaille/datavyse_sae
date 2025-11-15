@@ -108,62 +108,108 @@ document.addEventListener('DOMContentLoaded', () => {
             // Affiche l'année initiale dans le h3
             yearTitle.textContent = currentRecord.année;
 
-            // Création de la timeline: on ajoute une div par année
-            for (var iBox = 0; iBox < processedData.length; iBox++) {
-                var record = processedData[iBox];
+            // --- création / population du <select> années ---
+var yearSelect = document.getElementById('yearSelect');
+// si il n'existe pas dans le DOM (au cas où), le créer
+if (!yearSelect) {
+    yearSelect = document.createElement('select');
+    yearSelect.id = 'yearSelect';
+    yearSelect.className = 'yearSelect';
+    // place le select avant la timeline si possible
+    if (timeline && timeline.parentNode) timeline.parentNode.insertBefore(yearSelect, timeline);
+    else document.body.insertBefore(yearSelect, document.body.firstChild);
+}
 
-                var box = document.createElement('div');
-                box.className = 'yearBox';
+// remplir le select et créer la timeline
+for (var iBox = 0; iBox < processedData.length; iBox++) {
+    var record = processedData[iBox];
 
-                // Si l'année est divisible par 5 on affiche le numéro, sinon on laisse vide
-                if (record.année % 5 === 0) {
-                    box.textContent = record.année;
-                }
+    // --- option dans le select ---
+    var opt = document.createElement('option');
+    opt.value = record.année;
+    opt.textContent = record.année;
+    // sélectionne si correspond à currentRecord
+    if (record.année === currentRecord.année) opt.selected = true;
+    yearSelect.appendChild(opt);
 
-                // On stocke l'année dans l'attribut data-year pour la récupérer au clic
-                box.dataset.year = record.année;
+    // --- case dans la timeline (comme avant) ---
+    var box = document.createElement('div');
+    box.className = 'yearBox';
 
-                // Si la case correspond à l'année select, on ajoute la classe 'selected'
-                if (record.année === currentRecord.année) {
-                    box.classList.add('selected');
-                }
-                timeline.appendChild(box);
+    if (record.année % 5 === 0) {
+        box.textContent = record.année;
+    }
+    box.dataset.year = record.année;
 
-                // On ajoute un écouteur d'événement pour réagir au clic sur la frise
-                (function (boxElement) {
-                    boxElement.addEventListener('click', function () {
-                        // On récupère l'année select depuis data-year mais comme c un string on la converti!
-                        var selectedYear = Number(boxElement.dataset.year);
+    if (record.année === currentRecord.année) {
+        box.classList.add('selected');
+    }
+    timeline.appendChild(box);
 
-                        // retirer la classe 'selected' de toutes les cases
-                        var boxes = document.querySelectorAll('.yearBox');
-                        for (var b = 0; b < boxes.length; b++) {
-                            boxes[b].classList.remove('selected');
-                        }
+    // écouteur clic sur la case
+    (function (boxElement) {
+        boxElement.addEventListener('click', function () {
+            var selectedYear = Number(boxElement.dataset.year);
 
-                        // Ajouter la classe selected à la case cliquée
-                        boxElement.classList.add('selected');
-
-                        // parcours processedData pour trouver l'objet qui correspond à selectedYear
-                        var foundRecord = null;
-
-                        for (var rr = 0; rr < processedData.length; rr++) {
-                            if (processedData[rr].année === selectedYear) {
-                                foundRecord = processedData[rr];
-                                break;
-                            }
-                        }
-                        // Si trouvé, on lance l'animation vers cette année
-                        if (foundRecord !== null) {
-                            yearTitle.textContent = String(selectedYear);
-                            animateTo(foundRecord);
-                            updateMedalTexts(foundRecord);
-
-
-                        }
-                    });
-                })(box);
+            // retirer la classe 'selected' de toutes les cases
+            var boxes = document.querySelectorAll('.yearBox');
+            for (var b = 0; b < boxes.length; b++) {
+                boxes[b].classList.remove('selected');
             }
+
+            // Ajouter la classe selected à la case cliquée
+            boxElement.classList.add('selected');
+
+            // synchroniser le select si présent
+            if (yearSelect) yearSelect.value = String(selectedYear);
+
+            // trouver record puis lancer l'animation
+            var foundRecord = null;
+            for (var rr = 0; rr < processedData.length; rr++) {
+                if (processedData[rr].année === selectedYear) {
+                    foundRecord = processedData[rr];
+                    break;
+                }
+            }
+            if (foundRecord !== null) {
+                yearTitle.textContent = String(selectedYear);
+                animateTo(foundRecord);
+                updateMedalTexts(foundRecord);
+            }
+        });
+    })(box);
+}
+
+// écouteur change sur le select (quand l'utilisateur choisit l'année)
+yearSelect.addEventListener('change', function (e) {
+    var selectedYear = Number(e.target.value);
+
+    // mettre à jour la sélection visuelle sur la timeline (si visible)
+    var boxes = document.querySelectorAll('.yearBox');
+    for (var b2 = 0; b2 < boxes.length; b2++) {
+        boxes[b2].classList.remove('selected');
+        if (Number(boxes[b2].dataset.year) === selectedYear) {
+            boxes[b2].classList.add('selected');
+        }
+    }
+
+    // trouver record et lancer animation
+    var foundRecord = null;
+    for (var rr2 = 0; rr2 < processedData.length; rr2++) {
+        if (processedData[rr2].année === selectedYear) {
+            foundRecord = processedData[rr2];
+            break;
+        }
+    }
+    if (foundRecord !== null) {
+        yearTitle.textContent = String(selectedYear);
+        animateTo(foundRecord);
+        updateMedalTexts(foundRecord);
+    }
+});
+
+
+
             //Fonction qui dessine lees barres sur le canvas
 
             function drawChart(record, progress) {

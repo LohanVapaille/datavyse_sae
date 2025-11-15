@@ -22,7 +22,7 @@ canvas{
   background-repeat: no-repeat;
   background-position: center;
 
-width: 95%;
+width: 100%;
 margin: auto;
 border-radius: 10px;
 padding-right: 5px;
@@ -95,12 +95,38 @@ margin-top: 20px;
 }
 
 
-
-
-
-
 .yearBox.selected {
   border-left: 2px solid var(--colorlight);
   border-right: 2px solid var(--colorlight);
   font-weight: bold;
+}
+
+.yearSelect {
+  display: none;
+  width: fit-content;
+  max-width: 420px;
+  margin: 12px auto;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+/* Sur téléphone : afficher le select et cacher la timeline */
+@media (max-width: 900px) {
+  .yearSelect {
+    display: block;
+  }
+  #timeline {
+    display: none; /* on cache la frise sur mobile */
+  }
+}
+
+/* Sur téléphone : afficher le select et cacher la timeline */
+@media (max-width: 769px) {
+  canvas{
+
+    width: 100%;
+  }
 }
